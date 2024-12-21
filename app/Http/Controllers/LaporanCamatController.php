@@ -8,24 +8,41 @@ use App\Models\LaporanHarianCamat;
 
 class LaporanCamatController extends Controller
 {
-    public function download()
+    public function download($kecamatan, $bulan, $tahun)
     {
-        $data = LaporanHarianCamat::all(); // Fetch semua data laporan
+        // Ambil data laporan berdasarkan kecamatan, bulan, dan tahun
+        $data = LaporanHarianCamat::where('kecamatan', $kecamatan)
+            ->where('bulan', $bulan)
+            ->where('tahun', $tahun)
+            ->with(['penyelenggara', 'kegiatan']) // Pastikan relasi dipanggil
+            ->get()
+            ->groupBy('penyelenggara.nama_penyelenggara');
 
-        $pdf = Pdf::loadView('pdf.laporan-camat', ['data' => $data]);
+        // Pastikan kecamatan valid
+        if ($data->isEmpty()) {
+            abort(404, "Data untuk kecamatan {$kecamatan}, bulan {$bulan}, dan tahun {$tahun} tidak ditemukan.");
+        }
 
-        return $pdf->download('laporan_camat.pdf');
+        // Load view untuk PDF dan kirimkan data
+        $pdf = Pdf::loadView('pdf.laporan-camat', compact('data', 'kecamatan', 'bulan', 'tahun'));
+
+        return $pdf->download("laporan_camat_{$kecamatan}_{$bulan}_{$tahun}.pdf");
     }
-
-    public function view($id, $kecamatan)
+    public function view($kecamatan, $bulan, $tahun)
     {
         // Ambil data laporan berdasarkan kecamatan
-        $data = LaporanHarianCamat::where('id', $id)
-            ->where('kecamatan', $kecamatan)
+        $data = LaporanHarianCamat::where('kecamatan', $kecamatan)
+            ->where('bulan', $bulan)
+            ->where('tahun', $tahun)
             ->with(['penyelenggara', 'kegiatan']) // Pastikan relasi dipanggil
-            ->get();
+            ->get()
+            ->groupBy('penyelenggara.nama_penyelenggara');
 
+        // Pastikan kecamatan valid
+        if ($data->isEmpty()) {
+            abort(404, "Data untuk kecamatan {$kecamatan}, bulan {$bulan}, dan tahun {$tahun} tidak ditemukan.");
+        }
         // Tampilkan data ke view
-        return view('pdf.laporan-camat', compact('data'));
+        return view('pdf.laporan-camat', compact('data', 'kecamatan', 'bulan', 'tahun'));
     }
 }

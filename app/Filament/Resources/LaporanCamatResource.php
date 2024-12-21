@@ -136,6 +136,10 @@ class LaporanCamatResource extends Resource
                         11 => 'November',
                         12 => 'Desember',
                     ][$record->bulan] . ' ' . $record->tahun),
+                TextColumn::make('tahun')
+                    ->label('Tahun')
+                    ->searchable()  // Menambahkan fitur searchable di tahun
+                    ->sortable(),
 
             ])
             ->filters([
@@ -147,12 +151,26 @@ class LaporanCamatResource extends Resource
                 Tables\Actions\Action::make('download')
                     ->label('Download PDF')
                     ->icon('heroicon-o-arrow-down')
-                    ->url(fn($record) => route('laporan-camat.download', ['id' => $record->id]))
+                    ->url(fn($record) => route(
+                        'laporan-camat.download',
+                        [
+                            'kecamatan' => $record->kecamatan,
+                            'bulan' => $record->bulan,
+                            'tahun' => $record->tahun
+                        ]
+                    ))
                     ->openUrlInNewTab(),
                 Tables\Actions\Action::make('view')
                     ->label('Lihat')
                     ->icon('heroicon-o-eye')
-                    ->url(fn($record) => route('laporan-camat.view', ['id' => $record->id, 'kecamatan' => $record->kecamatan]))
+                    ->url(fn($record) => route(
+                        'laporan-camat.view',
+                        [
+                            'kecamatan' => $record->kecamatan,
+                            'bulan' => $record->bulan,
+                            'tahun' => $record->tahun
+                        ]
+                    ))
                     ->openUrlInNewTab(),
             ])
             ->bulkActions([

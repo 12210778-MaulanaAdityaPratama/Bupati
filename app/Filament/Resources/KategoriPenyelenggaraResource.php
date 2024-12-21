@@ -37,7 +37,9 @@ class KategoriPenyelenggaraResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_penyelenggara'),
+                TextColumn::make('nama_penyelenggara')
+                    ->searchable()
+                    ->sortable(),
 
             ])
             ->filters([
@@ -45,6 +47,7 @@ class KategoriPenyelenggaraResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
