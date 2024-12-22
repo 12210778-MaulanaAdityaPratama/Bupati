@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\LaporanHarianCamat;
+use Spatie\Browsershot\Browsershot;
+
 
 class LaporanCamatController extends Controller
 {
@@ -14,7 +16,7 @@ class LaporanCamatController extends Controller
         $data = LaporanHarianCamat::where('kecamatan', $kecamatan)
             ->where('bulan', $bulan)
             ->where('tahun', $tahun)
-            ->with(['penyelenggara', 'kegiatan']) // Pastikan relasi dipanggil
+            ->with(['penyelenggara', 'kegiatan'])
             ->get()
             ->groupBy('penyelenggara.nama_penyelenggara');
 
@@ -23,11 +25,24 @@ class LaporanCamatController extends Controller
             abort(404, "Data untuk kecamatan {$kecamatan}, bulan {$bulan}, dan tahun {$tahun} tidak ditemukan.");
         }
 
-        // Load view untuk PDF dan kirimkan data
-        $pdf = Pdf::loadView('pdf.laporan-camat', compact('data', 'kecamatan', 'bulan', 'tahun'));
+        // Ambil gambar pie chart dari session
+        $pieChartImage = session('pieChartImage');
 
-        return $pdf->download("laporan_camat_{$kecamatan}_{$bulan}_{$tahun}.pdf");
+        // Render view menjadi HTML string
+        $html = view('pdf.laporan-camat', compact('data', 'kecamatan', 'bulan', 'tahun', 'pieChartImage'))->render();
+
+        // Gunakan Browsershot untuk menghasilkan PDF
+        $pdfPath = storage_path("app/public/laporan_camat_{$kecamatan}_{$bulan}_{$tahun}.pdf");
+
+        Browsershot::html($html)
+            ->format('A4')
+            ->margins(20, 10, 20, 10)
+            ->waitUntilNetworkIdle() // Tunggu hingga semua aset dimuat
+            ->savePdf($pdfPath);
+
+        return response()->download($pdfPath)->deleteFileAfterSend();
     }
+
     public function view($kecamatan, $bulan, $tahun)
     {
         // Ambil data laporan berdasarkan kecamatan

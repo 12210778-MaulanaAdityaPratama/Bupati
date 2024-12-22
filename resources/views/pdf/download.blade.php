@@ -111,7 +111,11 @@
             }
         }
 
-
+        /* Responsif untuk diagram pie chart */
+        /* canvas {
+            max-width: 100%;
+            height: auto;
+        } */
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -201,10 +205,8 @@
         </tr>
     </table>
 
-
     <!-- Canvas untuk Diagram Lingkaran -->
     <canvas id="myPieChart" style="width:250px; height:125px; margin: 0 auto; display: block;"></canvas>
-
     <div class="footer">
         <p>Dicetak pada: {{ now()->format('d-m-Y H:i') }}</p>
         <p>Laporan ini disusun oleh Pemerintah Kabupaten Kubu Raya</p>
@@ -240,7 +242,6 @@
             },
             options: {
                 responsive: true,
-                animation: false,
                 plugins: {
                     title: {
                         display: true,
@@ -266,7 +267,9 @@
                 }
             }
         });
-</script>
+        // Tangkap gambar sebagai Base64 dan kirimkan ke server
+        document.getElementById('downloadPDF').addEventListener('click', function() { var pieChartImageBase64 = myPieChart.toBase64Image(); document.getElementById('chartImageInput').value = pieChartImageBase64; document.getElementById('pdfForm').submit(); });
+    </script>
 
 </body>
 </html>
