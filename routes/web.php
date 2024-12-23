@@ -18,9 +18,8 @@ use App\Http\Controllers\admin\{
 };
 
 Route::get('/', function () {
-
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 // Laporan Camat Routes
 Route::prefix('laporan-camat')->name('laporan-camat.')->group(function () {
@@ -103,8 +102,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 });
 
-    return view('home');
-})->name('home');
+
 
 Route::get('/geografi', function () {
     return view('geografi.geografi');
@@ -118,6 +116,4 @@ Route::get('/wilayah', function () {
     return view('wilayah.wilayah');
 })->name('wilayah');
 
-Route::get('/laporan-camat/download/{kecamatan}/{bulan}/{tahun}', [LaporanCamatController::class, 'download'])->name('laporan-camat.download');
-Route::get('/laporan-camat/view/{kecamatan}/{bulan}/{tahun}', [LaporanCamatController::class, 'view'])->name('laporan-camat.view');
 
