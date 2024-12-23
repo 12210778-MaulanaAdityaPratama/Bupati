@@ -1,0 +1,161 @@
+/* ini berita */
+.container-news {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    gap: 10px;
+}
+
+/* Kontainer kiri */
+.left-container {
+    width: 62%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-header {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.left-container h2 {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #00bfff;
+    margin-bottom: 20px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.news-item {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.news-item h3 {
+    font-size: 16px;
+    padding: 0px 8px 0px 8px;
+}
+
+.news-item p {
+    font-size: 12px;
+    text-align: justify;
+    padding: 0px 8px 0px 8px;
+}
+
+.more-news-btn {
+    background-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.more-news-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Kontainer kanan */
+.right-container {
+    width: 35%;
+    height: 35%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.right-container h2 {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #00bfff;
+    margin-bottom: 20px;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo-item {
+    text-align: center;
+    width: 48%;
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.photo-caption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* sosmed-kita */
+.sosmed-kita {
+    text-align: center;
+}
+
+.sosmed-kita h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: #007bff;
+    padding: 5px 15px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.icon-left,
+.icon-right {
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.icon-left {
+    color: #555;
+}
+
+.icon-right {
+    color: #888;
+}
