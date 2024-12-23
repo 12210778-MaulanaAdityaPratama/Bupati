@@ -1,0 +1,13 @@
+@import 'layouts/navbar.css';
+@import 'layouts/content_visi.css';
+@import 'layouts/content_map.css';
+@import 'layouts/content_berita.css';
+@import 'layouts/content_gallery.css';
+@import 'layouts/content_yt.css';
+@import 'layouts/footer.css';
+
+body {
+    margin: 0;
+    font-family: montserrat , sans-serif;
+    background-color: whitesmoke;
+}
