@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('luas_wilayah', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('kecamatan');
-            $table->integer('daratan');
-            $table->integer('perairan');
-            $table->integer('khusus');
+            $table->float('daratan')->nullable();
+            $table->float('perairan')->nullable();
+            $table->float('khusus')->nullable();
 
             $table->timestamps();
         });
