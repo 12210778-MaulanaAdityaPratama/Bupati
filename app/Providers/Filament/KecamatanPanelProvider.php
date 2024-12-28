@@ -18,50 +18,53 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 
-class AdminPanelProvider extends PanelProvider
+class KecamatanPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
 
         return $panel
-            ->id('admin')
-            ->path('admin')
-            ->default()
+            ->id('kecamatan')
+            ->path('kecamatan')
             ->login()
+
+
             ->colors([
                 'danger' => Color::Red,
                 'success' => Color::Emerald,
                 'gray' => Color::Slate,
                 'info' => Color::Blue,
                 'warning' => Color::Orange,
-                'primary' => Color::Indigo,
+                'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/Kecamatan/Resources'), for: 'App\\Filament\\Kecamatan\\Resources')
+            ->discoverPages(in: app_path('Filament/Kecamatan/Pages'), for: 'App\\Filament\\Kecamatan\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Kecamatan/Widgets'), for: 'App\\Filament\\Kecamatan\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
-            ->middleware([
-                EncryptCookies::class,
-                AddQueuedCookiesToResponse::class,
-                StartSession::class,
-                AuthenticateSession::class,
-                ShareErrorsFromSession::class,
-                VerifyCsrfToken::class,
-                SubstituteBindings::class,
-                DisableBladeIconComponents::class,
-                DispatchServingFilamentEvent::class,
-            ])
+            ->middleware(
+                [
+                    EncryptCookies::class,
+                    AddQueuedCookiesToResponse::class,
+                    StartSession::class,
+                    AuthenticateSession::class,
+                    ShareErrorsFromSession::class,
+                    VerifyCsrfToken::class,
+                    SubstituteBindings::class,
+                    DisableBladeIconComponents::class,
+                    DispatchServingFilamentEvent::class,
+                ],
 
+            )
             ->authMiddleware([
                 Authenticate::class,
-            ])
 
+            ])
         ;
     }
 }
