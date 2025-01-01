@@ -2,24 +2,25 @@
 
 namespace App\Filament\Kecamatan\Resources\Kecamatan;
 
-use App\Filament\Kecamatan\Resources\Kecamatan\LaporanCamatKecamatanResource\Pages;
-use App\Filament\Kecamatan\Resources\Kecamatan\LaporanCamatKecamatanResource\RelationManagers;
-use App\Models\LaporanCamat;
-use Dompdf\FrameDecorator\Text;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\LaporanCamat;
+use App\Models\KegiatanModel;
+use Dompdf\FrameDecorator\Text;
+use Filament\Resources\Resource;
+use Illuminate\Support\Facades\Auth;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\TimePicker;
+use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TimePicker;
-use Filament\Forms\Components\DatePicker;
-use Filament\Resources\Pages\ListRecords;
-use Illuminate\Support\Facades\Auth;
+use App\Filament\Kecamatan\Resources\Kecamatan\LaporanCamatKecamatanResource\Pages;
+use App\Filament\Kecamatan\Resources\Kecamatan\LaporanCamatKecamatanResource\RelationManagers;
 
 class LaporanCamatKecamatanResource extends Resource
 {
@@ -31,14 +32,23 @@ class LaporanCamatKecamatanResource extends Resource
     {
         return parent::getEloquentQuery()->where('kecamatan', auth()->user()->kecamatan->kecamatan);
     }
-
+    protected static ?string $slug = 'laporan-camat-kecamatan';
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('kecamatan')
+                Select::make('kecamatan')
                     ->label('Kecamatan')
-                    ->required(),
+                    ->required()
+                    ->options(function () {
+                        // Ambil kecamatan yang sedang login
+                        $kecamatanLogin = auth()->user()->kecamatan->kecamatan;
+
+                        // Mengembalikan kecamatan yang sesuai
+                        return [
+                            $kecamatanLogin => $kecamatanLogin, // Menampilkan kecamatan pengguna yang login
+                        ];
+                    }),
                 Select::make('penyelenggara_id')
                     ->label('Penyelenggara Unsur Pelaksana')
                     ->relationship('penyelenggaraCamatDetail', 'nama_penyelenggara') // Relasi ke KategoriPenyelenggara
@@ -47,24 +57,46 @@ class LaporanCamatKecamatanResource extends Resource
                 Select::make('kegiatan_id')
                     ->label('Kegiatan')
                     ->relationship('kegiatanCamatDetail', 'nama_kegiatan') // Relasi ke KegiatanModel
+                    ->multiple()
+                    ->searchable()
                     ->preload()
-                    ->required(),
+                    ->required()
+                    ->createOptionForm([
+                        TextInput::make('nama_kegiatan')
+                            ->label('Nama Kegiatan')
+                            ->required(),
+                    ])
+                    ->createOptionUsing(function (array $data) {
+                        return KegiatanModel::create($data)->id;
+                    }),
                 DatePicker::make('tanggal')
                     ->label('Tanggal')
                     ->required()
                     ->native(false),
-                TextInput::make('hari')
-                    ->label('Hari')
-                    ->required(),
                 TimePicker::make('waktu')
                     ->required()
                     ->label('Waktu')
                     ->seconds(false)
                     ->format('H:i')  // Format 24 jam
                     ->native(false),
-                TextInput::make('bulan')
+                select::make('bulan')
                     ->label('Bulan')
-                    ->required(),
+                    ->required()
+                    ->options([
+                        1 => 'Januari',
+                        2 => 'Februari',
+                        3 => 'Maret',
+                        4 => 'April',
+                        5 => 'Mei',
+                        6 => 'Juni',
+                        7 => 'Juli',
+                        8 => 'Agustus',
+                        9 => 'September',
+                        10 => 'Oktober',
+                        11 => 'November',
+                        12 => 'Desember',
+
+                    ]),
                 TextInput::make('tahun')
                     ->label('Tahun')
                     ->required(),
@@ -72,9 +104,11 @@ class LaporanCamatKecamatanResource extends Resource
                     ->label('Tempat Pelaksanaan')
                     ->required(),
                 TextInput::make('keterangan')
-                    ->label('Keterangan'),
+                    ->label('Keterangan')
+                    ->placeholder('Kosongkan jika tidak ada'),
                 TextInput::make('kendala')
-                    ->label('Kendala'),
+                    ->label('Kendala')
+                    ->placeholder('Kosongkan jika tidak ada'),
             ]);
     }
 
@@ -82,45 +116,31 @@ class LaporanCamatKecamatanResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('kecamatan')
-                    ->label('Kecamatan')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('penyelenggaraCamatDetail.nama_penyelenggara')
-                    ->label('Penyelenggara Unsur Pelaksana')
-                    ->searchable()
-                    ->sortable(),
                 TextColumn::make('kegiatanCamatDetail.nama_kegiatan')
                     ->label('Kegiatan')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('tanggal')
-                    ->label('Tanggal')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('waktu')
-                    ->label('Waktu')
-                    ->searchable()
-                    ->sortable(),
                 TextColumn::make('bulan')
-                    ->label('Bulan')
+                    ->label('Periode')
+                    ->sortable()
                     ->searchable()
-                    ->sortable(),
+                    ->formatStateUsing(fn($record) => [
+                        1 => 'Januari',
+                        2 => 'Februari',
+                        3 => 'Maret',
+                        4 => 'April',
+                        5 => 'Mei',
+                        6 => 'Juni',
+                        7 => 'Juli',
+                        8 => 'Agustus',
+                        9 => 'September',
+                        10 => 'Oktober',
+                        11 => 'November',
+                        12 => 'Desember',
+                    ][$record->bulan] . ' ' . $record->tahun),
                 TextColumn::make('tahun')
                     ->label('Tahun')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('tempat_pelaksanaan')
-                    ->label('Tempat Pelaksanaan')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('keterangan')
-                    ->label('Keterangan')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('kendala')
-                    ->label('Kendala')
-                    ->searchable()
+                    ->searchable()  // Menambahkan fitur searchable di tahun
                     ->sortable(),
             ])
             ->filters([
@@ -128,6 +148,30 @@ class LaporanCamatKecamatanResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('view')
+                    ->label('Lihat')
+                    ->icon('heroicon-o-eye')
+                    ->url(fn($record) => route(
+                        'laporan-camat-kecamatan.view',
+                        [
+                            'kecamatan' => $record->kecamatan,
+                            'bulan' => $record->bulan,
+                            'tahun' => $record->tahun
+                        ]
+                    ))
+                    ->openUrlInNewTab(),
+                Tables\Actions\Action::make('download')
+                    ->label('Download')
+                    ->icon('heroicon-o-arrow-down')
+                    ->url(fn($record) => route(
+                        'laporan-camat-kecamatan.download',
+                        [
+                            'kecamatan' => $record->kecamatan,
+                            'bulan' => $record->bulan,
+                            'tahun' => $record->tahun
+                        ]
+                    ))
+                    ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
