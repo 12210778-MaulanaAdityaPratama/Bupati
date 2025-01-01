@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('laporan_camat', function (Blueprint $table) {
-            $table->string('kecamatan');
+        Schema::create('foto_judul', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('judul');
+            $table->string('foto');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('laporan_camat', function (Blueprint $table) {
-            $table->dropColumn('kecamatan');
-        });
+        Schema::dropIfExists('foto_judul');
     }
 };

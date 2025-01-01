@@ -19,6 +19,6 @@ class KegiatanModel extends Model
     }
     public function KegiatanCamat()
     {
-        return $this->hasMany(LaporanCamat::class);
+        return $this->belongsToMany(LaporanCamat::class, 'kegiatan_laporan_pivot', 'kegiatan_id', 'laporan_camat_id');
     }
 }

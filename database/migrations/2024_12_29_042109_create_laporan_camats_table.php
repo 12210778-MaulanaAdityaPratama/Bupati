@@ -13,14 +13,11 @@ return new class extends Migration
     {
         Schema::create('laporan_camat', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kegiatan_id')
-                ->constrained('kegiatan')
-                ->onDelete('cascade'); // Relasi ke tabel kegiatan
+            $table->string('kecamatan');
             $table->foreignId('penyelenggara_id')
                 ->constrained('kategori_penyelenggara')
                 ->onDelete('cascade'); // Relasi ke tabel penyelenggara
             $table->date('tanggal'); // Tanggal kegiatan
-            $table->string('hari'); // Hari kegiatan
             $table->time('waktu'); // Waktu kegiatan
             $table->string('bulan');
             $table->string('tahun');

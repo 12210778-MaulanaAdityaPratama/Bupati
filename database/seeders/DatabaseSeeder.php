@@ -16,22 +16,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'user',
-        //     'email' => 'user@example.com',
-        //     'role' => 'admin',
-        //     'is_admin' => true,
-
-
-        // ]);
         User::factory()->create([
-            'name' => 'terentang',
-            'email' => 'terentang@example.com',
-            'role' => 'kecamatan',
-            'is_admin' => false,
-            'kecamatan_id' => 2
+            'name' => 'user',
+            'email' => 'user@example.com',
+            'role' => 'admin',
+            'is_admin' => true,
 
 
         ]);
+        // User::factory()->create([
+        //     'name' => 'terentang',
+        //     'email' => 'terentang@example.com',
+        //     'role' => 'kecamatan',
+        //     'is_admin' => false,
+
+
+        // ]);
     }
 }
