@@ -5,6 +5,7 @@ use App\Http\Controllers\LaporanCamatController;
 use Illuminate\Support\Facades\Auth;
 use Filament\Facades\Filament;
 use App\Http\Controllers\kecamatan\LaprocanCamatController;
+use App\Http\Controllers\HomeController;
 // use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\admin\{
     WilayahController,
@@ -21,9 +22,7 @@ use App\Http\Controllers\admin\{
     PenggunaanTanahController
 };
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('filament.auth.login');
 // Route::post('/login', [LoginController::class, 'login']);

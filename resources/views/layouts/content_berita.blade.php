@@ -5,48 +5,13 @@
             <h2>Berita & Informasi</h2>
         </div>
         <div class="news-grid">
-            <div class="news-item">
-                <img src="{{ asset('img/berita/berita1.png') }}" alt="">
-                <h3>Survey Lokasi Kecamatan Baru Kumpai Raya</h3>
-                <p>PROKOPIM KUBU RAYA - Bupati Kubu Raya Muda Mahendrawan membuka kegiatan Penguatan Konsep Pola
-                    Pengasuhan Bahagia bagi Komunitas (Parenting) Pendidikan Anak Usia Dini (PAUD), Senin (6/11), di
-                    Hotel Dangau Kubu Raya.</p>
-            </div>
-            <div class="news-item">
-                <img src="{{ asset('img/berita/berita1.png') }}" alt="">
-                <h3>Survey Lokasi Kecamatan Baru Kumpai Raya</h3>
-                <p>PROKOPIM KUBU RAYA - Bupati Kubu Raya Muda Mahendrawan membuka kegiatan Penguatan Konsep Pola
-                    Pengasuhan Bahagia bagi Komunitas (Parenting) Pendidikan Anak Usia Dini (PAUD), Senin (6/11), di
-                    Hotel Dangau Kubu Raya.</p>
-            </div>
-            <div class="news-item">
-                <img src="{{ asset('img/berita/berita1.png') }}" alt="">
-                <h3>Survey Lokasi Kecamatan Baru Kumpai Raya</h3>
-                <p>PROKOPIM KUBU RAYA - Bupati Kubu Raya Muda Mahendrawan membuka kegiatan Penguatan Konsep Pola
-                    Pengasuhan Bahagia bagi Komunitas (Parenting) Pendidikan Anak Usia Dini (PAUD), Senin (6/11), di
-                    Hotel Dangau Kubu Raya.</p>
-            </div>
-            <div class="news-item">
-                <img src="{{ asset('img/berita/berita1.png') }}" alt="">
-                <h3>Survey Lokasi Kecamatan Baru Kumpai Raya</h3>
-                <p>PROKOPIM KUBU RAYA - Bupati Kubu Raya Muda Mahendrawan membuka kegiatan Penguatan Konsep Pola
-                    Pengasuhan Bahagia bagi Komunitas (Parenting) Pendidikan Anak Usia Dini (PAUD), Senin (6/11), di
-                    Hotel Dangau Kubu Raya.</p>
-            </div>
-            <div class="news-item">
-                <img src="{{ asset('img/berita/berita1.png') }}" alt="">
-                <h3>Survey Lokasi Kecamatan Baru Kumpai Raya</h3>
-                <p>PROKOPIM KUBU RAYA - Bupati Kubu Raya Muda Mahendrawan membuka kegiatan Penguatan Konsep Pola
-                    Pengasuhan Bahagia bagi Komunitas (Parenting) Pendidikan Anak Usia Dini (PAUD), Senin (6/11), di
-                    Hotel Dangau Kubu Raya.</p>
-            </div>
-            <div class="news-item">
-                <img src="{{ asset('img/berita/berita1.png') }}" alt="">
-                <h3>Survey Lokasi Kecamatan Baru Kumpai Raya</h3>
-                <p>PROKOPIM KUBU RAYA - Bupati Kubu Raya Muda Mahendrawan membuka kegiatan Penguatan Konsep Pola
-                    Pengasuhan Bahagia bagi Komunitas (Parenting) Pendidikan Anak Usia Dini (PAUD), Senin (6/11), di
-                    Hotel Dangau Kubu Raya.</p>
-            </div>
+            @foreach($berita as $item)
+                <div class="news-item">
+                    <img src="{{ asset('storage/berita-images/' . $item->gambar) }}" alt="">
+                    <h3>{{ $item->nama_berita }}</h3>
+                    <p>{{ \Illuminate\Support\Str::limit($item->isi_berita, 100, '...') }}</p>
+                </div>
+            @endforeach
         </div>
         <button class="more-news-btn">Berita Lainnya</button>
     </div>
