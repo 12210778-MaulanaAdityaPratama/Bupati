@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaporanCamatController;
+use Illuminate\Support\Facades\Auth;
+use Filament\Facades\Filament;
+use App\Http\Controllers\kecamatan\LaprocanCamatController;
+use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\admin\{
     WilayahController,
     BatasWilayahController,
@@ -17,15 +22,21 @@ use App\Http\Controllers\admin\{
     PenggunaanTanahController
 };
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('filament.auth.login');
+// Route::post('/login', [LoginController::class, 'login']);
+// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Laporan Camat Routes
 Route::prefix('laporan-camat')->name('laporan-camat.')->group(function () {
     Route::get('download/{kecamatan}/{bulan}/{tahun}', [LaporanCamatController::class, 'download'])->name('download');
     Route::get('view/{kecamatan}/{bulan}/{tahun}', [LaporanCamatController::class, 'view'])->name('view');
 });
+Route::prefix('laporan-camat-kecamatan')->name('laporan-camat-kecamatan.')->group(function () {
+    Route::get('download/{kecamatan}/{bulan}/{tahun}', [LaprocanCamatController::class, 'download'])->name('download');
+    Route::get('view/{kecamatan}/{bulan}/{tahun}', [LaprocanCamatController::class, 'view'])->name('view');
+});
+// Tambahkan di routes/web.php atau routes/api.php
 
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -116,6 +127,7 @@ Route::get('/wilayah', function () {
     return view('wilayah.wilayah');
 })->name('wilayah');
 
+
 Route::get('/sejarah', function () {
     return view('sejarah.sejarah');
 })->name('sejarah');
@@ -179,3 +191,4 @@ Route::get('/strukturorganisasi', function () {
 Route::get('/test', function () {
     return view('test');
 })->name('test');
+

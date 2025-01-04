@@ -17,4 +17,9 @@ class KategoriPenyelenggara extends Model
     {
         return $this->hasMany(LaporanHarianCamat::class, 'penyelenggara_id');
     }
+
+    public function penyelenggaraCamat()
+    {
+        return $this->hasMany(LaporanCamat::class, 'penyelenggara_id');
+    }
 }

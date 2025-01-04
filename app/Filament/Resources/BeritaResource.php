@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BeritaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BeritaResource\RelationManagers;
+use Filament\Forms\Components\Textarea;
 
 class BeritaResource extends Resource
 {
@@ -28,7 +29,7 @@ class BeritaResource extends Resource
         return $form
             ->schema([
                 TextInput::make('nama_berita'),
-                TextInput::make('isi_berita'),
+                Textarea::make('isi_berita'),
                 FileUpload::make('gambar')
                     ->image() // Validasi bahwa file yang diupload adalah gambar
                     ->directory('berita-images') // Menyimpan gambar di direktori `storage/app/public/berita-images`
@@ -45,7 +46,8 @@ class BeritaResource extends Resource
                     ->sortable(),
                 TextColumn::make('isi_berita')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->limit(20),
                 ImageColumn::make('gambar')
                     ->label('Gambar')
                     ->getStateUsing(fn($record) => $record->gambar_url) // Mengambil URL dari accessor
@@ -69,6 +71,7 @@ class BeritaResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
