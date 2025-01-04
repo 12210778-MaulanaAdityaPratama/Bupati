@@ -138,57 +138,18 @@
     }
 }
 
-.container-geografi {
-    /* margin-bottom: 10px; */
-    margin: 0px 10px 10px 10px;
-    border-radius: 20px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-    display: flex;
+.visi-misi-content {
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    align-items: flex-start;
-}
-
-.header img {
-    max-width: 500px;
-    height: auto;
-    margin-right: 50px;
-}
-
-/* .header h1 {
-    font-size: 32px;
-    text-align: center 
-    text-align: left;
-    margin: 0 0 10px 0;
-} */
-
-.header p {
-    font-size: 18px;
+    top: 50%;
+    left: 50%;
     margin: 0;
-    text-align: justify;
-    margin-right: 25px;
 }
 
-.content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.content .text {
-    flex: 1;
-}
-
-.content .text p {
-    font-size: 16px;
-    text-align: justify;
-    line-height: 1.5;
-    text-align: justify;
+.visi-misi-content img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
 }
 
 .footer {

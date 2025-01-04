@@ -114,7 +114,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 
-
+/** Frontend route untuk navbar sama interaksi mapnya */
 Route::get('/geografi', function () {
     return view('geografi.geografi');
 })->name('geografi');
@@ -126,3 +126,69 @@ Route::get('/ekonomi', function () {
 Route::get('/wilayah', function () {
     return view('wilayah.wilayah');
 })->name('wilayah');
+
+
+Route::get('/sejarah', function () {
+    return view('sejarah.sejarah');
+})->name('sejarah');
+
+Route::get('/visimisi', function () {
+    return view('visimisi.visimisi');
+})->name('visimisi');
+
+Route::get('/bupati', function () {
+    return view('bupati.bupati');
+})->name('bupati');
+
+Route::get('/wakilbupati', function () {
+    return view('wakilbupati.wakilbupati');
+})->name('wakilbupati');
+
+Route::get('/lambang', function () {
+    return view('lambang.lambang');
+})->name('lambang');
+
+Route::get('/sungairaya', function () {
+    return view('kecamatan.sungairaya');
+})->name('sungairaya');
+
+Route::get('/batuampar', function () {
+    return view('kecamatan.batuampar');
+})->name('batuampar');
+
+Route::get('/terentang', function () { 
+    return view('kecamatan.terentang');
+})->name('terentang');
+
+Route::get('/kubu', function () {
+    return view('kecamatan.kubu');
+})->name('kubu');
+
+Route::get('/telukpekedai', function () {
+    return view('kecamatan.telukpekedai');
+})->name('telukpekedai');
+
+Route::get('/rasaujaya', function () {
+    return view('kecamatan.rasaujaya');
+})->name('rasaujaya');
+
+Route::get('/sungaiambawang', function () {
+    return view('kecamatan.sungaiambawang');
+})->name('sungaiambawang');
+
+Route::get('/kualamandor', function () {
+    return view('kecamatan.kualamandor');
+})->name('kualamandor');
+
+Route::get('/sungaikakap', function () {
+    return view('kecamatan.sungaikakap');
+})->name('sungaikakap');
+
+Route::get('/strukturorganisasi', function () {
+    return view('strukturorganisasi.strukturorganisasi');
+})->name('strukturorganisasi');
+
+Route::get('/test', function () {
+    return view('test');
+})->name('test');
+

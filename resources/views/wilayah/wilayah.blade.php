@@ -37,7 +37,7 @@
                     <div class="sub-dropdown">
                         <a href="#">Pemerintahan <i class="fas fa-caret-right"></i></a>
                         <div class="sub-dropdown-content">
-                            <a href="#">Sejarah</a>
+                            <a href="{{ route('sejarah') }}">Sejarah</a>
                             <a href="#">Visi dan Misi</a>
                             <a href="#">Bupati</a>
                             <a href="#">Wakil bupati</a>

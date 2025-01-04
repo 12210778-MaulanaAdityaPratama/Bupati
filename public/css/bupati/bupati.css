@@ -138,57 +138,68 @@
     }
 }
 
-.container-geografi {
-    /* margin-bottom: 10px; */
-    margin: 0px 10px 10px 10px;
-    border-radius: 20px;
-    padding: 20px;
+.profil-bupati {
     background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.header {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    align-items: flex-start;
+    flex-direction: row;
+    margin: 0 0 20px 0;
+    padding: 0;
 }
 
-.header img {
-    max-width: 500px;
-    height: auto;
-    margin-right: 50px;
-}
-
-/* .header h1 {
-    font-size: 32px;
-    text-align: center 
-    text-align: left;
-    margin: 0 0 10px 0;
-} */
-
-.header p {
-    font-size: 18px;
-    margin: 0;
-    text-align: justify;
-    margin-right: 25px;
-}
-
-.content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.content .text {
+.container-left {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-left img {
+    border-radius: 10px;
+    /* padding: 10px; */
+    margin-top: 40px;
+    max-width: 100%;
+    height: auto;
+}
+.container-left p {
+    text-align: center;
+    font-weight: bold;
 }
 
-.content .text p {
-    font-size: 16px;
+.container-right {
+    flex: 4;
+    padding: 20px;
+}
+
+.container-right li {
+    font-size: 14px;
+    line-height: 1.6;
     text-align: justify;
-    line-height: 1.5;
-    text-align: justify;
+}
+@media (max-width: 768px) {
+    .profil-bupati {
+        flex-direction: column;
+    }
+    .container-right {
+        padding-left: 0;
+        padding-top: 20px;
+    }
+}
+
+/* footer */
+.header-footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 0px 10px;
+    border-radius: 20px 20px 0px 0px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(6, 195, 255, 1) 100%
+    );
 }
 
 .footer {
@@ -210,21 +221,6 @@
         margin-right: 0;
         margin-bottom: 20px;
     }
-}
-
-/* footer */
-.header-footer {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 10px 0px 10px;
-    border-radius: 20px 20px 0px 0px;
-    padding: 20px;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 1) 20%,
-        rgba(6, 195, 255, 1) 100%
-    );
 }
 
 .left-header {
