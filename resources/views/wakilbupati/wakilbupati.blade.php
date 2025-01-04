@@ -1,15 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tata Pemerintahan Kubu Raya</title>
-    <link rel="stylesheet" href="{{ asset('css/geografi/geografi.css') }}">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ asset('css/wakilbupati/wakilbupati.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
     <div class="header">
         <div class="logo">
@@ -35,7 +35,7 @@
                     <div class="sub-dropdown">
                         <a href="#">Pemerintahan <i class="fas fa-caret-right"></i></a>
                         <div class="sub-dropdown-content">
-                            <a href="{{ route('sejarah') }}">Sejarah</a>
+                            <a href="#">Sejarah</a>
                             <a href="#">Visi dan Misi</a>
                             <a href="#">Bupati</a>
                             <a href="#">Wakil bupati</a>
@@ -79,65 +79,84 @@
         </div>
     </div>
 
-    <div class="container-geografi">
-        <div class="header">
-            <img alt="Map of Kabupaten Kubu Raya" src="{{ asset('img/geografi/geografi1.png') }}" />
-            <div>
-                {{-- <h1>KABUPATEN KUBU RAYA</h1> --}}
-                <p>
-                    Kabupaten Kubu Raya merupakan bagian terdepan dari Provinsi Kalimantan Barat yang secara geografis
-                    terletak di antara koordinat <strong>108° 35’–109° 58’ BT</strong> dan <strong>00° 44’ LU – 1° 01’
-                        LS</strong>.
-                    Kabupaten Kubu Raya adalah kabupaten hasil pemekaran dari Kabupaten Pontianak yang terbentuk melalui
-                    <strong>Undang-Undang No. 35 Tahun 2007</strong>.
-                </p>
-                <p>
-                    Dengan luas wilayah <strong>6.985,20 km²</strong> (sekitar 65% dari kabupaten induk), secara
-                    administrasi
-                    Kabupaten Kubu Raya berbatasan dengan:
-                </p>
-                <ul>
-                    <li><strong>Utara:</strong> Kabupaten Pontianak</li>
-                    <li><strong>Selatan:</strong> Kabupaten Ketapang</li>
-                    <li><strong>Timur:</strong> Kabupaten Landak dan Kabupaten Sanggau</li>
-                    <li><strong>Barat:</strong> Laut Natuna</li>
-                </ul>
-                <p>
-                    Wilayah administratif Kabupaten Kubu Raya meliputi 9 Kecamatan yaitu: Batu Ampar, Terentang, Kubu,
-                    Teluk Pakedai, Sungai Kakap, Rasau Jaya, Sungai Raya, Sungai Ambawang, Kuala Mandor B. Kecamatan
-                    terluas adalah Kecamatan Batu Ampar dengan luas 2.002,70 Km2 dan Kecamatan yang terkecil adalah
-                    Kecamatan Rasau Jaya dengan luas 111,07 Km2.
-                </p>
-            </div>
+    <div class="profil-bupati">
+        <!-- Left Container -->
+        <div class="container-left">
+            <img src="{{ asset('img/berita/wabupati.png') }}"
+                alt="Profile image of Dr. Drs. Syafri Kamaruzaman, M.Si., PJ Bupati Kubu Raya 2024" />
+            <p>Sujiwo, SE., M.Sos<br />Wakil Bupati Kubu Raya Periode 2019-2024</p>
         </div>
-        <div class="content">
-            <div class="text">
-                <p>
-                    PENDUDUK <br>
 
-                    Penduduk Kabupaten Kubu Raya berjumlah 518.497 jiwa dengan tingkat kepadatan 72 jiwa per Km2, secara
-                    historis hidup rukun dan damai, dengan komposisi penduduk yang multi ras dan multi agama, pemeluk
-                    agama sebagian besar adalah Islam (82%), sangat toleran terhadap pendatang sehingga akulturasi antar
-                    budaya terjadi secara alami. Jumlah angkatan kerja penduduk Kubu Raya tahun 2008 tercatat sebesar
-                    234.144 orang, dengan komposisi sedang bekerja 197.429 orang dan mencari kerja 36.685 orang.
-                    Konsentrasi penduduk tertinggi terdapat di tiga kecamatan yaitu Sungai Raya yang merupakan Ibukota
-                    Kabupaten, Sungai Kakap dan Sungai Ambawang. Hal ini sangat logis mengingat ketiga kecamatan
-                    tersebut merupakan daerah yang mengelilingi Ibukota Propinsi Kalimantan Barat yaitu Kota Pontianak.
-                </p>
-                <p>
-                    TOPOGRAFI DAN IKLIM <br>
+        <!-- Right Container -->
+        <div class="container-right">
+            <!-- Biodata Section -->
+            <div class="section">
+                <h2>Biodata</h2>
+                <ul>
+                    <li>Nama: SUJIWO, S.E., M.Sos</li>
+                    <li>Tanggal Lahir: 5 September 1969</li>
+                    <li>Istri: Atzeby Yatir Lensi, S.E</li>
+                    <li>Anak:
+                        <ul>
+                            <li>Irwan Ferdian</li>
+                            <li>Monika Putri</li>
+                            <li>Farahma Salsabila</li>
+                            <li>Erlangga Pangestu</li>
+                        </ul>
+                    </li>
+                    <li>Orang Tua: Padmin Sudiyo (Ayah), Srini (Ibu)</li>
+                    <li>Agama: Islam</li>
+                </ul>
+            </div>
 
-                    Kabupaten Kubu Raya secara umum merupakan daerah dataran yang relatif datar dengan kemiringan lahan
-                    0 – 3% seluas 792.320 Ha (98%), Daerah lereng 3 – 15 % seluas 7.205 Ha dan kelerengan diatas 40 %
-                    seluas 850 Ha. Luas wilayah lautan seluas 2.197 Km2 dari keseluruhan luas wilayah Kabupaten, yaitu
-                    6.985,20 Km2, yang terdiri dari 1.437 Km2 Luas Laut dan 760 Km2 Luas Perairan Umum dengan garis
-                    pantai sepanjang 149 Km dan memiliki 39 pulau-pulau kecil. Sedangkan luas wilayah daratannya adalah
-                    4.785 Km2. Iklim di Kubu Raya termasuk dalam type Iklim A (Schmit & Ferguson) yaitu iklim sangat
-                    basah dengan curah hujan bulanan diatas 100 mm dengan total curah hujan tahunan rata-rata berkisar
-                    3000mm. Suhu rata-rata maksimum 33,40 C terjadi pada bulan mei dan suhu minimum rata-rata 22,50 C
-                    terjadi pada bulan Agustus.  Kondisi topografi dan iklim di Kubu Raya sangat menunjang untuk
-                    investasi agrikultur.
-                </p>
+            <!-- Riwayat Pendidikan Section -->
+            <div class="section">
+                <h2>Riwayat Pendidikan</h2>
+                <ul>
+                    <li>SD Negeri 4 Rasau Jaya, 1983</li>
+                    <li>SMP Negeri 1 Rasau Jaya, 1986</li>
+                    <li>Akademi Sekretaris Manajemen Indonesia Pontianak (ASMI), 1994</li>
+                    <li>Sekolah Tinggi Ilmu Ekonomi, 2005</li>
+                    <li>Magister Ilmu Politik Fakultas Ilmu Sosial dan Ilmu Politik, Universitas Tanjungpura, 2020</li>
+                </ul>
+            </div>
+
+            <!-- Karir/Jabatan Section -->
+            <div class="section">
+                <h2>Karir/Jabatan</h2>
+                <ul>
+                    <li>Staff SDM PT. Samalindo Lestari Jaya Kalimantan Timur (PT. ASTRA International Group), 1997-1998
+                    </li>
+                    <li>Kepala Bagian PT. Nitiyasa Idola Kalimantan Barat, 1997-1998</li>
+                    <li>Ketua Komisi C DPRD Kabupaten Pontianak, 1999-2004</li>
+                    <li>Wakil Ketua DPRD Kabupaten Pontianak, 2004-2007</li>
+                    <li>Ketua DPRD Kabupaten Kubu Raya, 2007-2009</li>
+                    <li>Ketua DPRD Kabupaten Kubu Raya, 2009-2014</li>
+                    <li>Anggota DPRD Kabupaten Kubu Raya, 2014-2018</li>
+                    <li>Wakil Bupati Kubu Raya, 2019-sekarang</li>
+                </ul>
+            </div>
+
+            <!-- Karir Politik Section -->
+            <div class="section">
+                <h2>Karir Politik</h2>
+                <ul>
+                    <li>Ketua Departemen PDI Perjuangan Kabupaten Pontianak, 1999-2000</li>
+                    <li>Ketua DPC PDI Perjuangan Kabupaten Pontianak, 2000-2005</li>
+                    <li>Wakil Ketua DPD PDI Perjuangan Provinsi Kalimantan Barat, 2005-2010</li>
+                    <li>Ketua DPC PDI Perjuangan Kabupaten Pontianak, 2005-2007</li>
+                    <li>Ketua DPC PDI Perjuangan Kabupaten Kubu Raya, 2007-2010</li>
+                    <li>Ketua DPC PDI Perjuangan Kabupaten Kubu Raya, 2010-2015</li>
+                    <li>Bendahara DPD PDI Perjuangan Kalimantan Barat, 2020-2025</li>
+                </ul>
+            </div>
+
+            <!-- Penghargaan Section -->
+            <div class="section">
+                <h2>Penghargaan</h2>
+                <ul>
+                    <li>Warga Kehormatan Korps BRIMOB POLRI</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -179,7 +198,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

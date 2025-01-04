@@ -275,3 +275,23 @@
     line-height: 1.6;
     color: #ffffff;
 }
+
+.region-info {
+    display: none;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0px 15px;
+    max-width: 250px;
+    word-wrap: break-word;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transform: translate(-50%, -50%); /* Memastikan posisi di tengah */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Tampilkan saat visible */
+.region-info.visible {
+    display: block;
+}

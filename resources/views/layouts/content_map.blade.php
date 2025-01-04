@@ -1,14 +1,45 @@
 <div class="container-map">
     <div class="map-container">
-        <img src="{{ asset('img/region/region1.png') }}" alt="Batu Ampar" class="region region1">
-        <img src="{{ asset('img/region/region2.png') }}" alt="Kubu" class="region region2">
-        <img src="{{ asset('img/region/region3.png') }}" alt="Teluk Pekedai" class="region region3">
-        <img src="{{ asset('img/region/region4.png') }}" alt="Terentang" class="region region4">
-        <img src="{{ asset('img/region/region5.png') }}" alt="Sungai Raya" class="region region5">
-        <img src="{{ asset('img/region/region6.png') }}" alt="Rasau Jaya" class="region region6">
-        <img src="{{ asset('img/region/region7.png') }}" alt="Sungai Kakap" class="region region7">
-        <img src="{{ asset('img/region/region8.png') }}" alt="Sungai Ambawang" class="region region8">
-        <img src="{{ asset('img/region/region9.png') }}" alt="Kuala Mandor B" class="region region9">
+        <div id="region-info" class="region-info">
+            <h2>Pilih wilayah untuk melihat informasi</h2>
+            <p>Klik pada salah satu wilayah di peta untuk melihat detail.</p>
+        </div>
+
+        <a href="{{ route('batuampar') }}">
+            <img src="{{ asset('img/region/region1.png') }}" alt="Batu Ampar" class="region region1">
+        </a>
+
+        <a href="{{ route('kubu') }}">
+            <img src="{{ asset('img/region/region2.png') }}" alt="Kubu" class="region region2">
+        </a>
+
+        <a href="{{ route('telukpekedai') }}">
+            <img src="{{ asset('img/region/region3.png') }}" alt="Teluk Pekedai" class="region region3">
+        </a>
+
+        <a href="{{ route('terentang') }}">
+            <img src="{{ asset('img/region/region4.png') }}" alt="Terentang" class="region region4">
+        </a>
+
+        <a href="{{ route('sungairaya') }}">
+            <img src="{{ asset('img/region/region5.png') }}" alt="Sungai Raya" class="region region5">
+        </a>
+
+        <a href="{{ route('rasaujaya') }}">
+            <img src="{{ asset('img/region/region6.png') }}" alt="Rasau Jaya" class="region region6">
+        </a>
+
+        <a href="{{ route('sungaikakap') }}">
+            <img src="{{ asset('img/region/region7.png') }}" alt="Sungai Kakap" class="region region7">
+        </a>
+
+        <a href="{{ route('sungaiambawang') }}">
+            <img src="{{ asset('img/region/region8.png') }}" alt="Sungai Ambawang" class="region region8">
+        </a>
+
+        <a href="{{ route('kualamandor') }}">
+            <img src="{{ asset('img/region/region9.png') }}" alt="Kuala Mandor B" class="region region9">
+        </a>
     </div>
     <div class="text-content">
         <div class="judul">Sekretariat Daerah</div>

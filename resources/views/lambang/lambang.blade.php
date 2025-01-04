@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tata Pemerintahan Kubu Raya</title>
-    <link rel="stylesheet" href="{{ asset('css/geografi/geografi.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lambang/lambang.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
@@ -81,63 +81,72 @@
 
     <div class="container-geografi">
         <div class="header">
-            <img alt="Map of Kabupaten Kubu Raya" src="{{ asset('img/geografi/geografi1.png') }}" />
+            <img alt="Map of Kabupaten Kubu Raya" src="{{ asset('img/logo.png') }}" />
             <div>
-                {{-- <h1>KABUPATEN KUBU RAYA</h1> --}}
+                <h1>MAKNA LAMBANG KABUPATEN KUBU RAYA</h1>
                 <p>
-                    Kabupaten Kubu Raya merupakan bagian terdepan dari Provinsi Kalimantan Barat yang secara geografis
-                    terletak di antara koordinat <strong>108° 35’–109° 58’ BT</strong> dan <strong>00° 44’ LU – 1° 01’
-                        LS</strong>.
-                    Kabupaten Kubu Raya adalah kabupaten hasil pemekaran dari Kabupaten Pontianak yang terbentuk melalui
-                    <strong>Undang-Undang No. 35 Tahun 2007</strong>.
+                    Lambang berbentuk perisai dengan garis lengkung dan garis lurus menyatu berwarna hitam dan biru
+                    didalamnya, mengandung arti bahwa wilayah Kabupaten Kubu Raya merupakan daerah daratan dan
+                    pulaupulau yang dipisahkan oleh sungai dan laut, serta mempunyai potensi sebagai daerah lalu lintas
+                    perdagangan dan pariwisata.
                 </p>
                 <p>
-                    Dengan luas wilayah <strong>6.985,20 km²</strong> (sekitar 65% dari kabupaten induk), secara
-                    administrasi
-                    Kabupaten Kubu Raya berbatasan dengan:
-                </p>
-                <ul>
-                    <li><strong>Utara:</strong> Kabupaten Pontianak</li>
-                    <li><strong>Selatan:</strong> Kabupaten Ketapang</li>
-                    <li><strong>Timur:</strong> Kabupaten Landak dan Kabupaten Sanggau</li>
-                    <li><strong>Barat:</strong> Laut Natuna</li>
-                </ul>
-                <p>
-                    Wilayah administratif Kabupaten Kubu Raya meliputi 9 Kecamatan yaitu: Batu Ampar, Terentang, Kubu,
-                    Teluk Pakedai, Sungai Kakap, Rasau Jaya, Sungai Raya, Sungai Ambawang, Kuala Mandor B. Kecamatan
-                    terluas adalah Kecamatan Batu Ampar dengan luas 2.002,70 Km2 dan Kecamatan yang terkecil adalah
-                    Kecamatan Rasau Jaya dengan luas 111,07 Km2.
+                    Pada sisi kanan benteng terdapat butiran padi yang berjumlah 17 dan pada sisi kirinya terdapat 7
+                    lembar daun kelapa yang berpangkal pada angka 2007 dibawahnya terdapat tulisan Kubu Raya, yang
+                    mengandung arti bahwa berdirinya Kabupaten Kubu Raya pada Tanggal 17 Juli 2007. Butiran padi dan
+                    lembar daun kelapa menunjukan bahwa Kabupaten Kubu Raya merupakan daerah dengan potensi hasil
+                    pertanian dan perkebunan yang subur.
                 </p>
             </div>
         </div>
         <div class="content">
             <div class="text">
                 <p>
-                    PENDUDUK <br>
-
-                    Penduduk Kabupaten Kubu Raya berjumlah 518.497 jiwa dengan tingkat kepadatan 72 jiwa per Km2, secara
-                    historis hidup rukun dan damai, dengan komposisi penduduk yang multi ras dan multi agama, pemeluk
-                    agama sebagian besar adalah Islam (82%), sangat toleran terhadap pendatang sehingga akulturasi antar
-                    budaya terjadi secara alami. Jumlah angkatan kerja penduduk Kubu Raya tahun 2008 tercatat sebesar
-                    234.144 orang, dengan komposisi sedang bekerja 197.429 orang dan mencari kerja 36.685 orang.
-                    Konsentrasi penduduk tertinggi terdapat di tiga kecamatan yaitu Sungai Raya yang merupakan Ibukota
-                    Kabupaten, Sungai Kakap dan Sungai Ambawang. Hal ini sangat logis mengingat ketiga kecamatan
-                    tersebut merupakan daerah yang mengelilingi Ibukota Propinsi Kalimantan Barat yaitu Kota Pontianak.
+                    Ditengah Lambang terdapat benteng (kubu pertahanan) yang terdiri dari 9 bagian yaitu 1 ditengah, 4
+                    disisi kanan dan 4 disisi kiri, yang mengandung arti bahwa Kabupaten Kubu Raya pada saat pembentukan
+                    terdiri dari 9 Kecamatan, dengan pusat pemerintahan berada di Kecamatan sungai Raya.
                 </p>
                 <p>
-                    TOPOGRAFI DAN IKLIM <br>
-
-                    Kabupaten Kubu Raya secara umum merupakan daerah dataran yang relatif datar dengan kemiringan lahan
-                    0 – 3% seluas 792.320 Ha (98%), Daerah lereng 3 – 15 % seluas 7.205 Ha dan kelerengan diatas 40 %
-                    seluas 850 Ha. Luas wilayah lautan seluas 2.197 Km2 dari keseluruhan luas wilayah Kabupaten, yaitu
-                    6.985,20 Km2, yang terdiri dari 1.437 Km2 Luas Laut dan 760 Km2 Luas Perairan Umum dengan garis
-                    pantai sepanjang 149 Km dan memiliki 39 pulau-pulau kecil. Sedangkan luas wilayah daratannya adalah
-                    4.785 Km2. Iklim di Kubu Raya termasuk dalam type Iklim A (Schmit & Ferguson) yaitu iklim sangat
-                    basah dengan curah hujan bulanan diatas 100 mm dengan total curah hujan tahunan rata-rata berkisar
-                    3000mm. Suhu rata-rata maksimum 33,40 C terjadi pada bulan mei dan suhu minimum rata-rata 22,50 C
-                    terjadi pada bulan Agustus.  Kondisi topografi dan iklim di Kubu Raya sangat menunjang untuk
-                    investasi agrikultur.
+                    Pada sisi bawah benteng terbantang perahu yang sarat muatan dengan riak ombak didepannya dan layer
+                    mengembang serta tiang perahu yang kokoh, mengandung arti transportasi air sebagai media lalu lintas
+                    perdagangan hasil usaha keras masyarakat yaitu hasil laut, pertanian, perkebunan, industri dan
+                    tambang, menuju kehidupan yang bermartabat dan sejahtera.
                 </p>
+                <p>
+                    Pada sisi paling bawah terdapat pita bertuliskan Kubu Raya, mengandung arti budaya masyarakat Kubu
+                    Raya heterogen selalu bersatu, harmonis sebagai pencerminan rasa persatuan dan kesatuan.
+                </p>
+                <p>
+                    Pada sisi atas benteng terdapat bintang segi lima dan enam sinar yang memancar mengadung arti
+                    Pancasila sebagai dasar dalam mewujudkan enam harapan masyarakat yang tertib, aman, mudah pelayanan,
+                    adil dan merata, makmur, indah, lestari, beriman dan bertaqwa dalam ridho Tuhan Yang Maha Esa.
+                </p>
+                <p>
+                    Arti/Warna Komposisi Warna :
+                </p>
+                <ul>
+                    <li>
+                        Warna Dasar biru laut, melambangkan keyakinan. Dengan daerah perairan sebagai pemisah daratan,
+                        tetapi masyarakat yakin lautan raya sangat berpotensi dengan hasil lautnya juga sebagai lalu
+                        lintas pertumbuhan ekonomi sekaligus membuka kerjasama pada bidang pariwisata dan perdagangan
+                        baik Nasional maupun Internasional.
+                    </li>
+                    <li>Warna hitam, melambangkan perjuangan dan kerja keras dalam menggali dan mengelola potensi daerah
+                        menuju masyarakat adil dan makmur.
+                    </li>
+                    <li>Warna merah dan putih melambangkan keberanian dan kesucian. Berani bersaing dengan daerah lain
+                        atas dasar keberanian dan kesucian jiwa di bawah panji Merah Putih Negara Kesatuan Republik
+                        Indonesia.
+                    </li>
+                    <li>Warna hijau melambangkan kesuburan. Dengan Potensi daerah pertanian dan perkebunan yang subur
+                        menjadikan masyarakat yang produktif bekerja sesuai dengan keahlian dan kemampuannya dengan
+                        memanfaatkan ilmu pengetahuan dan teknologi sebagai penunjangnya.
+                    </li>
+                    <li>
+                        Warna kuning emas melambangkan keagungan, berawal dari sejarah perjuangan mengusir penjajah oleh
+                        pejuang-pejuang Kubu Raya.
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
