@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        ekonomi
+        Dokumen Perancangan
     </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/ekonomi/ekonomi.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dokumenperancangan/dokumenperancangan.css') }}">
 </head>
 
 <body>
@@ -82,64 +82,132 @@
     </div>
 
     <div class="container">
-        <img alt="" class="header-image" src="{{ asset('img/ekonomi/ekonomi1.png') }}" />
-        <p class="highlight">
-            Perekonomian Kabupaten Kubu Raya digerakkan oleh sektor primer sebagai sektor basis dan sektor sekunder
-            sebagai sektor penunjang. Pergerakan perekonomian Kubu Raya di dukung oleh berbagai potensi sumber daya alam
-            yang kaya, seperti: pertanian, perkebunan dan peternakan.
-        </p>
-        <h2>
-            Pertanian
-        </h2>
+        <h1>
+            Dokumen Perancangan
+        </h1>
         <p>
-            Pertanian di kabupaten Kubu Raya baik pertanian lahan kering maupun lahan basah sangat potensial, terdapat
-            beberapa komoditas yang dibudidayakan yaitu: padi, jagung, ubi, kedelai, kacang tanah serta sayur dan
-            buah-buahan. Daerah-daerah sentra penghasil komoditas tersebut antara lain adalah kecamatan Sungai Kakap,
-            Terentang, Batu Ampar, Rasau Jaya dan Teluk Pakedai. Bahkan daerah-daerah ini merupakan daerah yang terkenal
-            di Kalimantan Barat sebagai sentra pertanian dengan produksi pertanian yang cukup besar. Bahkan untuk
-            kecamatan Sungai Kakap telah diusulkan menjadi Kawasan Usaha Agropolitan Terpadu (KUAT) dan juga kecamatan
-            Rasau Jaya sebagai Kota Mandiri Terpadu (KTM), dengan basis industri pertanian, peternakan dan perikanan
-            dengan daya dukung lahan yang memadai.
+            Berdasarkan Undang-Undang No. 25 Tahun 2004 tentang Sistem Perencanaan Pembangunan Nasional, setiap
+            Perangkat Daerah harus memiliki Rencana Strategis (Renstra Perangkat Daerah) yang berpedoman pada Rencana
+            Pembangunan Jangka Menengah Daerah (RPJMD). Renstra Perangkat Daerah disusun untuk mencapai tujuan dan
+            sasaran organisasi pemerintahan dalam rangka pelaksanaan tugas pokok dan fungsi masing-masing Perangkat
+            Daerah.
         </p>
-        <h2>
-            Perkebunan
-        </h2>
         <p>
-            Kegiatan perkebunan di kabupaten Kubu Raya untuk komoditas dalam skala industri membudidayakan jenis
-            komoditas antara lain karet, kelapa dan kelapa sawit. Sebenarnya meliputi kecamatan Sungai Ambawang, Kuala
-            Mandor B, Batu Ampar, Kubu dan Sungai Kakap dengan produksi yang cukup berarti. Bahkan untuk komoditas
-            kelapa sawit diperkirakan produksinya akan terus meningkat seiring makin banyaknya pelaku usaha yang
-            melakukan pembukaan areal baru untuk perkebunan kelapa sawit.
+            Renstra Perangkat Daerah adalah dokumen perencanaan Perangkat Daerah untuk periode 5 (lima) tahun. Dokumen
+            Renstra Perangkat Daerah memuat tentang tujuan, sasaran, program, dan kegiatan selama kurun waktu 5 (lima)
+            tahun, yang mengacu pada tugas pokok dan fungsinya.
         </p>
-        <h2>
-            Perikanan
-        </h2>
         <p>
-            Sektor perikanan produksinya didominasi oleh perikanan laut, disamping juga terdapat dari budidaya kolam dan
-            keramba dalam jumlah yang cukup berarti.
+            Dalam sistem akuntabilitas kinerja instansi pemerintah yang merupakan instrumen pertanggungjawaban,
+            perencanaan strategis merupakan langkah awal untuk melakukan pengukuran kinerja dinas/badan/kantor dan
+            perangkat-perangkat daerah lainnya. Perencanaan strategis pemerintah juga merupakan integrasi antara
+            keahlian sumberdaya manusia dan sumber daya lain agar mampu menjawab tuntutan perkembangan lingkungan
+            strategis, lokal, nasional dan global namun tetap berada pada tatanan sistem manajemen nasional. Dokumen
+            Rencana Strategis Sekretariat Daerah yang disusun berfungsi sebagai landasan dalam penyelenggaraan Sistem
+            Akuntabilitas Kinerja Instansi Pemerintah (SAKIP), pedoman dalam penyusunan Rencana Kerja Sekretariat Daerah
+            selama lima tahun ke depan, dan sebagai acuan untuk mencapai tujuan Sekretariat Daerah yang mendukung
+            pencapaian visi dan misi Bupati Kubu Raya.
         </p>
-        <h2>
-            Peternakan
-        </h2>
         <p>
-            Peternakan hewan dan unggas dengan jumlah yang potensial terdapat disetiap kecamatan kabupaten Kubu Raya
-            dengan jenis sapi, kambing, kerbau dan babi. Kelompok unggas didominasi oleh jenis ayam dan bebek. Potensi
-            peternakan potensinya sejalan dengan potensi pertanian dan perkebunan.
+            Berikut adalah Daftar Rencana Strategis :
         </p>
-        <h2>
-            Kehutanan
-        </h2>
+        <ul>
+            <li>
+                Rencana Strategis Tahun 2017 - 2022 (
+                <a
+                    href="https://tapem.jogjakota.go.id/assets/instansi/tapem/files/rencana-strategis-setda-2017-2022-296.pdf.pdf">
+                    download disini
+                </a>
+                )
+            </li>
+            <li>
+                Rencana Strategis Tahun 2023 - 2026 (
+                <a href="https://tapem.jogjakota.go.id/assets/instansi/tapem/files/renstra-2023---2026-11463.pdf">
+                    download disini
+                </a>
+                )
+            </li>
+        </ul>
         <p>
-            Potensi sektor Kehutanan masih didominasi pada industri pengolahan lanjutan, dengan sebaran dominan di
-            kecamatan Sungai Raya dan Batu Ampar, bahan baku lebih banyak dipasok dari luar daerah. Selain sisi
-            kontribusi pendapatan tak dapat dipungkiri sektor industri pengolahan kayu ini merupakan sektor yang cukup
-            banyak menyerap tenaga kerja. Potensi hutan alam produksi di wilayah kabupaten Kubu Raya boleh dikatakan
-            sudah tidak memadai untuk skala industri. Namun masih terdapat jenis pemanfaatan hutan alam skala yang cukup
-            luas di kecamatan batu ampar yaitu jenis hasil hutan kayu bakau (mangrove) dalam skala industri yang cukup
-            berarti dengan pangsa pasar ekspor dalam bentuk komoditas arang briket dan juga Hutan Tanaman Industri.
-            Disamping pemanfaatan hutan dalam bidang perindustrian, saat ini mulai dikembangkan hutan wisata dan hutan
-            mangrove sebagai pengembangan potensi hutan di sektor pariwisata.
+            Sesuai dengan amanat Undang-Undang No. 25 Tahun 2004 tentang Sistem Perencanaan Pembangunan Nasional, setiap
+            Perangkat Daerah harus memiliki Rencana Pembangunan Tahunan Perangkat Daerah atau biasa disebut dengan
+            Rencana Kerja Perangkat Daerah (Renja Perangkat Daerah). Renja Perangkat Daerah adalah dokumen perencanaan
+            Perangkat Daerah untuk periode satu tahun. Renja Perangkat Daerah disusun dengan mengacu pada Rencana Kerja
+            Pembangunan Daerah (RKPD) dan berpedoman pada Rancangan Strategis Perangkat Daerah (Renstra Perangkat
+            Daerah) serta memuat program, kegiatan, lokasi kegiatan, indikator kinerja program dan kegiatan, kelompok
+            sasaran, dan pendanaan.
         </p>
+        <p>
+            Sebagai sebuah dokumen resmi Perangkat Daerah, Renja Perangkat Daerah mempunyai kedudukan yang strategis
+            yaitu menjembatani antara perencanaan pada Perangkat Daerah dengan RKPD, sebagai implementasi pelaksanaan
+            strategis jangka menengah daerah (RPJMD) dan Renstra Perangkat Daerah yang menjadi satu kesatuan untuk
+            mendukung pencapaian Visi dan Misi Daerah. Selain itu Renja Perangkat Daerah juga berfungsi untuk
+            menerjemahkan perencanaan strategis lima tahunan yang dituangkan dalam Renstra Perangkat Daerah ke dalam
+            perencanaan tahunan yang sifatnya lebih operasional.
+        </p>
+        <p>
+            Berikut adalah Daftar Rencana Kerja :
+        </p>
+        <ul>
+            <li>
+                Rencana Kerja Setda 2019 (
+                <a href="#">
+                    download disini
+                </a>
+                )
+            </li>
+            <li>
+                Rencana Kerja Setda 2020 (
+                <a href="#">
+                    download disini
+                </a>
+                )
+            </li>
+            <li>
+                Rencana Kerja Setda 2021 (
+                <a href="#">
+                    download disini
+                </a>
+                )
+            </li>
+            <li>
+                Rencana Kerja Setda 2022 (
+                <a href="#">
+                    download disini
+                </a>
+                )
+            </li>
+            <li>
+                Rencana Kerja Setda 2023 (
+                <a href="#">
+                    download disini
+                </a>
+                )
+            </li>
+            <li>
+                Rencana Kerja Setda 2024 (
+                <a
+                    href="https://tapem.jogjakota.go.id/assets/instansi/tapem/files/rencana-kerja-setda-2019-293.pdf.pdf">
+                    download disini
+                </a>
+                )
+            </li>
+        </ul>
+        <p>
+            Perencanaan Kinerja Bagian Tata Pemerintahan :
+        </p>
+        <ul>
+            <li>
+                Perencanaan Kinerja 2022 Bagian Tata Pemerintahan (
+                <a href="#">
+                    download disini
+                </a>
+                )
+            </li>
+        </ul>
+        <div class="footer-content">
+            <img alt="Logo Kabupaten Kubu Raya" height="150" src="{{ asset('img/logo.png') }}" width="100" />
+        </div>
     </div>
 
     <div class="header-footer">
@@ -179,7 +247,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
