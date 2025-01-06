@@ -17,4 +17,8 @@ class KegiatanModel extends Model
     {
         return $this->belongsToMany(LaporanHarianCamat::class, 'laporan_kegiatan', 'kegiatan_id', 'laporan_harian_camat_id');
     }
+    public function KegiatanCamat()
+    {
+        return $this->belongsToMany(LaporanCamat::class, 'kegiatan_laporan_pivot', 'kegiatan_id', 'laporan_camat_id');
+    }
 }
