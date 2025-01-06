@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="nav">
-        <a href="#">Beranda</a>
+        <a href="{{ route('home') }}">Beranda</a>
         <div class="dropdown">
             <a href="#">Profil <i class="fas fa-caret-down"></i></a>
             <div class="dropdown-content">
@@ -47,21 +47,21 @@
                     <a href="#">Tata Pemerintahan <i class="fas fa-caret-right"></i></a>
                     <div class="sub-dropdown-content">
                         <a href="{{ route('strukturorganisasi') }}">Struktur organisasi</a>
-                        <a href="#">Kata sambutan</a>
-                        <a href="#">Tugas pokok dan fungsi</a>
+                        <a href="{{ route('sambutan') }}">Kata sambutan</a>
+                        <a href="{{ route('tugaspokok') }}">Tugas pokok dan fungsi</a>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="#">Berita</a>
+        <a href="{{ route('berita') }}">Berita</a>
         <div class="dropdown">
             <a href="#">Informasi <i class="fas fa-caret-down"></i></a>
             <div class="dropdown-content">
-                <a href="#">Pengumuman</a>
-                <a href="#">Dokumen perancangan</a>
-                <a href="#">Laporan keuangan</a>
+                <a href="{{ route('pengumuman') }}">Pengumuman</a>
+                <a href="{{ route('dokumenperancangan') }}">Dokumen perancangan</a>
+                <a href="{{ route('laporankeuangan') }}">Laporan keuangan</a>
             </div>
         </div>
-        <a href="#">Hubungi Kami</a>
+        <a href="{{ route('contact') }}">Hubungi Kami</a>
     </div>
 </div>

@@ -37,48 +37,49 @@
                         <a href="#">Pemerintahan <i class="fas fa-caret-right"></i></a>
                         <div class="sub-dropdown-content">
                             <a href="{{ route('sejarah') }}">Sejarah</a>
-                            <a href="#">Visi dan Misi</a>
-                            <a href="#">Bupati</a>
-                            <a href="#">Wakil bupati</a>
-                            <a href="#">Makna Lambang</a>
+                            <a href="{{ route('visimisi') }}">Visi dan Misi</a>
+                            <a href="{{ route('bupati') }}">Bupati</a>
+                            <a href="{{ route('wakilbupati') }}">Wakil bupati</a>
+                            <a href="{{ route('lambang') }}">Makna Lambang</a>
                         </div>
                     </div>
                     <div class="sub-dropdown">
                         <a href="#">Profil Kecamatan <i class="fas fa-caret-right"></i></a>
                         <div class="sub-dropdown-content">
-                            <a href="#">Sungai Raya</a>
-                            <a href="#">Sungai Kakap</a>
-                            <a href="#">Sungai Ambawang</a>
-                            <a href="#">Kuala Mandor B</a>
-                            <a href="#">Rasau Jaya</a>
-                            <a href="#">Kubu</a>
-                            <a href="#">Teluk Pekedai</a>
-                            <a href="#">Batuampar</a>
-                            <a href="#">Terentang</a>
+                            <a href="{{ route('sungairaya') }}">Sungai Raya</a>
+                            <a href="{{ route('sungaikakap') }}">Sungai Kakap</a>
+                            <a href="{{ route('sungaiambawang') }}">Sungai Ambawang</a>
+                            <a href="{{ route('kualamandor') }}">Kuala Mandor B</a>
+                            <a href="{{ route('rasaujaya') }}">Rasau Jaya</a>
+                            <a href="{{ route('kubu') }}">Kubu</a>
+                            <a href="{{ route('telukpekedai') }}">Teluk Pekedai</a>
+                            <a href="{{ route('batuampar') }}">Batuampar</a>
+                            <a href="{{ route('terentang') }}">Terentang</a>
                         </div>
                     </div>
                     <div class="sub-dropdown">
                         <a href="#">Tata Pemerintahan <i class="fas fa-caret-right"></i></a>
                         <div class="sub-dropdown-content">
-                            <a href="#">Struktur organisasi</a>
-                            <a href="#">Kata sambutan</a>
-                            <a href="#">Tugas pokok dan fungsi</a>
+                            <a href="{{ route('strukturorganisasi') }}">Struktur organisasi</a>
+                            <a href="{{ route('sambutan') }}">Kata sambutan</a>
+                            <a href="{{ route('tugaspokok') }}">Tugas pokok dan fungsi</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="#">Berita</a>
+            <a href="{{ route('berita') }}">Berita</a>
             <div class="dropdown">
                 <a href="#">Informasi <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown-content">
-                    <a href="#">Pengumuman</a>
-                    <a href="#">Dokumen perancangan</a>
-                    <a href="#">Laporan keuangan</a>
+                    <a href="{{ route('pengumuman') }}">Pengumuman</a>
+                    <a href="{{ route('dokumenperancangan') }}">Dokumen perancangan</a>
+                    <a href="{{ route('laporankeuangan') }}">Laporan keuangan</a>
                 </div>
             </div>
-            <a href="#">Hubungi Kami</a>
+            <a href="{{ route('contact') }}">Hubungi Kami</a>
         </div>
     </div>
+
 
     <div class="container">
         <div class="header-suiraya">

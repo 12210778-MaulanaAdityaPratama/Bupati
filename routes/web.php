@@ -176,6 +176,34 @@ Route::get('/strukturorganisasi', function () {
     return view('strukturorganisasi.strukturorganisasi');
 })->name('strukturorganisasi');
 
-Route::get('/test', function () {
-    return view('test');
-})->name('test');
+Route::get('/sambutan', function () {
+    return view('sambutan.sambutan');
+})->name('sambutan');
+
+Route::get('/tugaspokok', function () {
+    return view('tugaspokok.tugaspokok');
+})->name('tugaspokok');
+
+Route::get('/berita', function () {
+    return view('berita.berita');
+})->name('berita');
+
+Route::get('/pengumuman', function () {
+    return view('pengumuman.pengumuman');
+})->name('pengumuman');
+
+Route::get('/detail-pengumuman', function () {
+    return view('pengumuman.detailpengumuman');
+})->name('detailpengumuman');
+
+Route::get('/dokumen-perancangan', function () {
+    return view('dokumenperancangan.dokumenperancangan');
+})->name('dokumenperancangan');
+
+Route::get('/laporan-keuangan', function () {
+    return view('laporankeuangan.laporankeuangan');
+})->name('laporankeuangan');
+
+Route::get('/contact', function () {
+    return view('contact.contact');
+})->name('contact');

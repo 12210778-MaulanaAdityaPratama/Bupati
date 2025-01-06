@@ -1,25 +1,19 @@
-<div class="container"
-    style="background: url('https://kolomdesa.com/wp-content/uploads/2023/08/slider-1.jpg'); background-repeat: no-repeat; background-size: cover;">
-    <div class="side-content">
-        <div class="image-placeholder">
-            <img src="{{ asset('img/dr-1.png') }}" alt="foto png here">
-        </div>
-        <div class="text-button">Dr. Syarif Kmaruzaman, M. Si
-            Pj. BUPATI KUBU RAYA</div>
+<div class="slideshow-container">
+
+    <!-- Full-width images -->
+    <div class="mySlides fade">
+        <img src="{{ asset('img/banner1.png') }}" style="width:100%">
     </div>
-    <div class="main-content">
-        <div class="ribbon">VISI</div>
-        <div class="main-text">
-            <h1>TERWUJUDNYA KABUPATEN KUBU RAYA</h1>
-            <h1>YANG BAHAGIA, BERMARTABAT</h1>
-            <h1>TERDEPAN, BERKUALITAS DAN RELIGIUS</h1>
-        </div>
+
+    <div class="mySlides fade">
+        <img src="{{ asset('img/banner2.png') }}" style="width:100%">
     </div>
-    <div class="side-content">
-        <div class="image-placeholder">
-            <img src="{{ asset('img/dr-2.png') }}" alt="foto png here">
-        </div>
-        <div class="text-button">Dr. Syarif Kmaruzaman, M. Si
-            Pj. BUPATI KUBU RAYA</div>
+
+    <div class="mySlides fade">
+        <img src="{{ asset('img/banner3.png') }}" style="width:100%">
     </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>

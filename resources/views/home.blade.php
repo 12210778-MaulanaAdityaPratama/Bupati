@@ -140,6 +140,47 @@
             });
         });
     </script>
+
+    <script>
+        let slideIndex = 0;
+        let autoSlide;
+
+        // Manual controls
+        function plusSlides(n) {
+            clearInterval(autoSlide); // Stop auto slider when manually navigating
+            showSlides(slideIndex += n);
+            startAutoSlide(); // Restart auto slider
+        }
+
+        // Function to display the slides
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("mySlides");
+            if (n >= slides.length) {
+                slideIndex = 0
+            } // Loop back to the first slide
+            if (n < 0) {
+                slideIndex = slides.length - 1
+            } // Go to the last slide
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        // Automatic slider
+        function startAutoSlide() {
+            autoSlide = setInterval(() => {
+                slideIndex++;
+                showSlides(slideIndex);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        // Initialize the slider
+        document.addEventListener("DOMContentLoaded", () => {
+            showSlides(slideIndex); // Show the initial slide
+            startAutoSlide(); // Start automatic sliding
+        });
+    </script>
 </body>
 
 </html>
