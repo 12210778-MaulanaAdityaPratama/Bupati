@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\{
     LahanGarapanController,
     PenggunaanTanahController
 };
+use App\Http\Controllers\BeritaController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -219,8 +220,8 @@ Route::get('/laporan-keuangan', function () {
 Route::get('/contact', function () {
     return view('contact.contact');
 })->name('contact');
-=======
-Route::get('/test', function () {
-    return view('test');
-})->name('test');
 
+// menampilkan detail berita
+Route::get('/detail-berita', function () {
+    return view('berita.detailberita');
+})->name('detailberita');
