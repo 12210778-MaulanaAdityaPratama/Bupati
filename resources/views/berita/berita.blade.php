@@ -79,70 +79,90 @@
             <a href="{{ route('contact') }}">Hubungi Kami</a>
         </div>
     </div>
-    
+
 
     <article class="all-browsers">
         <h1>Berita Terkini</h1>
 
         <!-- First News Item -->
-        <article class="browser">
-            <img src="{{ asset('img/news/news1.png') }}" alt="#">
-            <div>
-                <h2>Lorem, ipsum.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia sit
-                    sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                    aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque suscipit
-                    laborum eveniet nulla alias, soluta accusamus sint.</p>
-            </div>
-        </article>
+        <a href="{{ route('detailberita') }}">
+            <article class="browser">
+                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
+                <div>
+                    <h2>Lorem, ipsum.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
+                        sit
+                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
+                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
+                        suscipit
+                        laborum eveniet nulla alias, soluta accusamus sint.</p>
+                </div>
+            </article>
+        </a>
 
         <!-- Second News Item -->
-        <article class="browser">
-            <img src="{{ asset('img/news/news2.png') }}" alt="#">
-            <div>
-                <h2>Mozilla Firefox</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia sit
-                    sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                    aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque suscipit
-                    laborum eveniet nulla alias, soluta accusamus sint.</p>
-            </div>
-        </article>
+        <a href="{{ route('detailberita') }}">
+            <article class="browser">
+                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
+                <div>
+                    <h2>Mozilla Firefox</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
+                        sit
+                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
+                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
+                        suscipit
+                        laborum eveniet nulla alias, soluta accusamus sint.</p>
+                </div>
+            </article>
+        </a>
 
         <!-- Third News Item -->
-        <article class="browser">
-            <img src="{{ asset('img/news/news3.png') }}" alt="#">
-            <div>
-                <h2>Microsoft Edge</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia sit
-                    sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                    aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque suscipit
-                    laborum eveniet nulla alias, soluta accusamus sint.</p>
-            </div>
-        </article>
+        <a href="{{ route('detailberita') }}">
+            <article class="browser">
+                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
+                <div>
+                    <h2>Microsoft Edge</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
+                        sit
+                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
+                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
+                        suscipit
+                        laborum eveniet nulla alias, soluta accusamus sint.</p>
+                </div>
+            </article>
+        </a>
 
         <!-- Fourth News Item -->
-        <article class="browser">
-            <img src="{{ asset('img/news/news4.png') }}" alt="#">
-            <div>
-                <h2>Opera</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia sit
-                    sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                    aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque suscipit
-                    laborum eveniet nulla alias, soluta accusamus sint.</p>
-            </div>
-        </article>
+        <a href="{{ route('detailberita') }}">
+            <article class="browser">
+                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
+                <div>
+                    <h2>Opera</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
+                        sit
+                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
+                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
+                        suscipit
+                        laborum eveniet nulla alias, soluta accusamus sint.</p>
+                </div>
+            </article>
+        </a>
 
         <!-- Fifth News Item -->
-        <article class="browser">
-            <img src="{{ asset('img/news/news5.png') }}" alt="#">
-            <div>
-                <h2>Safari</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia sit
-                    sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                    aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque suscipit
-                    laborum eveniet nulla alias, soluta accusamus sint.</p>
-            </div>
-        </article>
+        <a href="{{ route('detailberita') }}">
+            <article class="browser">
+                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
+                <div>
+                    <h2>Safari</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
+                        sit
+                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
+                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
+                        suscipit
+                        laborum eveniet nulla alias, soluta accusamus sint.</p>
+                </div>
+            </article>
+        </a>
 
         <div class="pagination">
             <button>&laquo; Prev</button>
