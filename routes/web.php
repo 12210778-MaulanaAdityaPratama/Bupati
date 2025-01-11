@@ -5,8 +5,16 @@ use App\Http\Controllers\LaporanCamatController;
 use Illuminate\Support\Facades\Auth;
 use Filament\Facades\Filament;
 use App\Http\Controllers\kecamatan\LaprocanCamatController;
+use App\Http\Controllers\kecamatan\KualaMandorController;
+use App\Http\Controllers\kecamatan\RasauJayaController;
+use App\Http\Controllers\kecamatan\SungaiRayaController;
+use App\Http\Controllers\kecamatan\SungaiAmbawangController;
+use App\Http\Controllers\kecamatan\SungaiKakapController;
+use App\Http\Controllers\kecamatan\BatuAmparController;
+use App\Http\Controllers\kecamatan\KubuController;
+use App\Http\Controllers\kecamatan\TelukPakedaiController;
+use App\Http\Controllers\kecamatan\TerentangController;
 use App\Http\Controllers\HomeController;
-// use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\admin\{
     WilayahController,
     BatasWilayahController,
@@ -23,12 +31,22 @@ use App\Http\Controllers\admin\{
 };
 use App\Http\Controllers\BeritaController;
 
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('filament.auth.login');
-// Route::post('/login', [LoginController::class, 'login']);
-// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-// Laporan Camat Routes
+
+Route::get('/kecamatan/kualamandor', [KualaMandorController::class, 'index'])->name('kualamandor');
+Route::get('/kecamatan/rasaujaya', [RasauJayaController::class, 'index'])->name('rasaujaya');
+Route::get('/kecamatan/sungairaya', [SungaiRayaController::class, 'index'])->name('sungairaya');
+Route::get('/kecamatan/sungaiambawang', [SungaiAmbawangController::class, 'index'])->name('sungaiambawang');
+Route::get('/kecamatan/sungaikakap', [SungaiKakapController::class, 'index'])->name('sungaikakap');
+Route::get('/kecamatan/batampar', [BatuAmparController::class, 'index'])->name('batuampar');
+Route::get('/kecamatan/kubu', [KubuController::class, 'index'])->name('kubu');
+Route::get('/kecamatan/telukpekedai', [TelukPakedaiController::class, 'index'])->name('telukpekedai');
+Route::get('/kecamatan/terentang', [TerentangController::class, 'index'])->name('terentang');
+
+
+
 Route::prefix('laporan-camat')->name('laporan-camat.')->group(function () {
     Route::get('download/{kecamatan}/{bulan}/{tahun}', [LaporanCamatController::class, 'download'])->name('download');
     Route::get('view/{kecamatan}/{bulan}/{tahun}', [LaporanCamatController::class, 'view'])->name('view');
@@ -37,7 +55,6 @@ Route::prefix('laporan-camat-kecamatan')->name('laporan-camat-kecamatan.')->grou
     Route::get('download/{kecamatan}/{bulan}/{tahun}', [LaprocanCamatController::class, 'download'])->name('download');
     Route::get('view/{kecamatan}/{bulan}/{tahun}', [LaprocanCamatController::class, 'view'])->name('view');
 });
-// Tambahkan di routes/web.php atau routes/api.php
 
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -149,41 +166,6 @@ Route::get('/lambang', function () {
     return view('lambang.lambang');
 })->name('lambang');
 
-Route::get('/sungairaya', function () {
-    return view('kecamatan.sungairaya');
-})->name('sungairaya');
-
-Route::get('/batuampar', function () {
-    return view('kecamatan.batuampar');
-})->name('batuampar');
-
-Route::get('/terentang', function () { 
-    return view('kecamatan.terentang');
-})->name('terentang');
-
-Route::get('/kubu', function () {
-    return view('kecamatan.kubu');
-})->name('kubu');
-
-Route::get('/telukpekedai', function () {
-    return view('kecamatan.telukpekedai');
-})->name('telukpekedai');
-
-Route::get('/rasaujaya', function () {
-    return view('kecamatan.rasaujaya');
-})->name('rasaujaya');
-
-Route::get('/sungaiambawang', function () {
-    return view('kecamatan.sungaiambawang');
-})->name('sungaiambawang');
-
-Route::get('/kualamandor', function () {
-    return view('kecamatan.kualamandor');
-})->name('kualamandor');
-
-Route::get('/sungaikakap', function () {
-    return view('kecamatan.sungaikakap');
-})->name('sungaikakap');
 
 Route::get('/strukturorganisasi', function () {
     return view('strukturorganisasi.strukturorganisasi');
@@ -221,7 +203,13 @@ Route::get('/contact', function () {
     return view('contact.contact');
 })->name('contact');
 
+
+Route::get('/test', function () {
+    return view('test');
+})->name('test');
+
 // menampilkan detail berita
 Route::get('/detail-berita', function () {
     return view('berita.detailberita');
 })->name('detailberita');
+

@@ -64,7 +64,7 @@ class PendudukPendidikanResource extends Resource
                     ->label('Tamat Akademi/Sekolah Tinggi')
                     ->placeholder('Contoh: 1000 / Kosongkan jika tidak ada')
                     ->numeric(),
-                TextInput::make('uni')
+                TextInput::make('universitas')
                     ->label('Tamat Universitas')
                     ->placeholder('Contoh: 1000 / Kosongkan jika tidak ada')
                     ->numeric(),

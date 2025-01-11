@@ -64,6 +64,10 @@ class PendudukAgamaResource extends Resource
                     ->label('Budha')
                     ->placeholder('Contoh: 1000 / Kosongkan jika tidak ada')
                     ->numeric(),
+                TextInput::make('konghucu')
+                    ->label('Konghucu')
+                    ->placeholder('Contoh: 1000 / Kosongkan jika tidak ada')
+                    ->numeric(),
             ]);
     }
 
@@ -97,6 +101,11 @@ class PendudukAgamaResource extends Resource
                     ->default('-'),
                 TextColumn::make('budha')
                     ->label('Budha')
+                    ->sortable()
+                    ->searchable()
+                    ->default('-'),
+                TextColumn::make('konghucu')
+                    ->label('Konghucu')
                     ->sortable()
                     ->searchable()
                     ->default('-'),
