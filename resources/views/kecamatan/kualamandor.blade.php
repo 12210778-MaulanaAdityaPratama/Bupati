@@ -93,14 +93,9 @@
         </div>
 
         <div class="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quaerat ipsa, non distinctio, fuga
-            aspernatur laborum, at libero facere harum sit consequuntur architecto? Ipsa, voluptates rerum? Molestiae
-            atque nihil dicta, nesciunt sapiente velit iure sit laborum maxime eaque quibusdam optio omnis voluptate
-            minima harum enim, cum tenetur esse? Inventore magnam, ratione vel incidunt maxime ipsum impedit ea eum
-            tenetur, unde delectus explicabo. Deleniti distinctio iste aspernatur ipsa. Cum eum voluptatibus ex eveniet
-            doloremque nostrum iusto magni obcaecati, eos vero quisquam unde quidem ipsum aspernatur itaque aperiam id
-            suscipit. Quod ipsa neque inventore, quisquam repellendus itaque enim? Quisquam perferendis voluptates
-            ducimus!
+          @foreach ($airbersih as $air )
+              {{ $air->nama }}
+          @endforeach
         </div>
 
         <div class="section-title">Profile Kecamatan Kuala Mandor B</div>
@@ -199,7 +194,7 @@
         <div class="item" data-modal="modal53">Jumlah Staff Kecamatan</div>
         <div class="item" data-modal="modal54">Prasarana Pemerintahan Kecamatan</div>
         <div class="item" data-modal="modal55">Pelaksanaan Profil Kecamatan</div>
-        <div class="item" data-modal="modal56">Pelaksanaan Profil Kecamatan</div>
+        <div class="item" data-modal="modal56">Tanah Pemda Di Kecamatan</div>
     </div>
 
     @include('modals.allmodal')

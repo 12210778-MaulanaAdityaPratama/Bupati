@@ -2,9 +2,13 @@
    <div class="modal" id="modal1">
        <div class="modal-content">
            <ul>
-               <li><strong>1. Wilayah Daratan (KM²):</strong> 637,522 KM²</li>
-               <li><strong>2. Wilayah Perairan (KM²):</strong> 0 KM²</li>
-               <li><strong>3. Wilayah Khusus:</strong> Hutan Lindung, Marga Satwa, dll.</li>
+            @foreach ($luas_wilayah as $tp )
+
+
+               <li><strong>1. Wilayah Daratan (KM²):</strong>{{$tp->daratan}} KM²</li>
+               <li><strong>2. Wilayah Perairan (KM²):</strong>{{$tp->perairan}} KM²</li>
+               <li><strong>3. Wilayah Khusus(Hutan Lindung, Marga Satwa, dll):</strong> {{$tp->khusus}} KM² </li>
+               @endforeach
            </ul>
            <button class="close-modal">Tutup</button>
        </div>
@@ -14,7 +18,18 @@
    <!-- Modal 2 -->
    <div class="modal" id="modal2">
        <div class="modal-content">
-           <img src="{{ asset('img/kecamatan/compas.png') }}" alt="compas" width="100%" height="100%">
+           <ul>
+            @foreach ($batas_wilayah as $tp )
+
+
+               <li><strong>1. Utara:</strong>{{$tp->utara}} KM²</li>
+               <li><strong>2. Selatan:</strong>{{$tp->selatan}} KM²</li>
+               <li><strong>3. Timur:</strong> {{$tp->timur}} KM²</li>
+               <li><strong>4. Barat:</strong> {{$tp->barat}} KM² </li>
+               <li><strong>5. Batas:</strong> {{$tp->batas}} KM² </li>
+               <li><strong>6. Keterangan:</strong> {{$tp->keterangan}} </li>
+
+               @endforeach
            <button class="close-modal">Tutup</button>
        </div>
    </div>
@@ -23,9 +38,11 @@
    <div class="modal" id="modal3">
        <div class="modal-content">
            <ul>
-               <li><strong>1. Jumlah Kepala Keluarga:</strong> 65,223</li>
-               <li><strong>2. Jumlah Laki-laki:</strong> 109,655</li>
-               <li><strong>3. Jumlah Perempuan:</strong> 110,131</li>
+            @foreach ($jumlah_penduduk as $tp )
+               <li><strong>1. Jumlah Kepala Keluarga:</strong> {{$tp->kk}}</li>
+               <li><strong>2. Jumlah Laki-laki:</strong> {{$tp->laki_laki}}</li>
+               <li><strong>3. Jumlah Perempuan:</strong> {{$tp->perempuan}}</li>
+               @endforeach
            </ul>
            <button class="close-modal">Tutup</button>
        </div>
@@ -35,9 +52,12 @@
    <div class="modal" id="modal4">
        <div class="modal-content">
            <ul>
-               <li><strong>1. Jumlah KM²:</strong> 5,612</li>
-               <li><strong>2. Luas Wilayah (KM²):</strong> 929,30</li>
-               <li><strong>3. Kepadatan/(KM²):</strong> 76,62</li>
+            @foreach ($luas_kepadatan as $tp )
+
+               <li><strong>1. Jumlah KM²:</strong>{{$tp->jumlah}}</li>
+               <li><strong>2. Luas Wilayah (KM²):</strong> {{$tp->luas}}</li>
+               <li><strong>3. Kepadatan/(KM²):</strong> {{$tp->kepadatan}}</li>
+               @endforeach
            </ul>
            <button class="close-modal">Tutup</button>
        </div>
@@ -54,11 +74,14 @@
                    <th>Umur 20-24 th</th>
                </tr>
                <tr>
-                   <td>17,380 Jiwa</td>
-                   <td>22,609 Jiwa</td>
-                   <td>22,142 Jiwa</td>
-                   <td>16,639 Jiwa</td>
-                   <td>21,113 Jiwa</td>
+                @foreach ($penduduk_umur as $tp )
+
+                   <td>{{$tp->thn_0_4thn}} Jiwa</td>
+                   <td>{{$tp->thn_5_9thn}} Jiwa</td>
+                   <td>{{$tp->thn_10_14thn}} Jiwa</td>
+                   <td>{{$tp->thn_15_19thn}} Jiwa</td>
+                   <td>{{$tp->thn_20_24thn}} Jiwa</td>
+                   @endforeach
                </tr>
                <tr>
                    <th>Umur 25-29 th</th>
@@ -68,11 +91,15 @@
                    <th>Umur >60 th</th>
                </tr>
                <tr>
-                   <td>21,252 Jiwa</td>
-                   <td>20,400 Jiwa</td>
-                   <td>18,877 Jiwa</td>
-                   <td>2,430 Jiwa</td>
-                   <td>19,302 Jiwa</td>
+                @foreach ($penduduk_umur as $tp )
+
+                   <td>{{$tp->thn_25_29thn}} Jiwa</td>
+                   <td>{{$tp->thn_30_34thn}} Jiwa</td>
+                   <td>{{$tp->thn_35_39thn}} Jiwa</td>
+                   <td>{{$tp->thn_40_59thn}} Jiwa</td>
+                   <td>{{$tp->thn_60thn}} Jiwa</td>
+                   @endforeach
+
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -89,10 +116,13 @@
                    <th>PETANI</th>
                </tr>
                <tr>
-                   <td>3,907 Jiwa</td>
-                   <td>1,897 Jiwa</td>
-                   <td>1,227 Jiwa</td>
-                   <td>16,639 Jiwa</td>
+                @foreach ($pekerjaan_penduduk as $tp )
+
+                   <td>{{$tp->pns}} Jiwa</td>
+                   <td>{{$tp->tni}} Jiwa</td>
+                   <td>{{$tp->polri}} Jiwa</td>
+                   <td>{{$tp->petani}} Jiwa</td>
+                   @endforeach
                </tr>
                <tr>
                    <th>NELAYAN</th>
@@ -101,10 +131,13 @@
                    <th>LAIN-LAIN</th>
                </tr>
                <tr>
-                   <td>253 Jiwa</td>
-                   <td>411 Jiwa</td>
-                   <td>8,041 Jiwa</td>
-                   <td>8,745 Jiwa</td>
+                @foreach ($pekerjaan_penduduk as $tp )
+
+                <td>{{$tp->nelayan}} Jiwa</td>
+                <td>{{$tp->pedagang}} Jiwa</td>
+                <td>{{$tp->buruh}} Jiwa</td>
+                <td>{{$tp->lain}} Jiwa</td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -120,9 +153,12 @@
                    <th>KHATOLIK</th>
                </tr>
                <tr>
-                   <td>179,360 Jiwa</td>
-                   <td>13,563 Jiwa</td>
-                   <td>13,526 Jiwa</td>
+                @foreach ($penduduk_agama as $tp )
+
+                <td>{{$tp->islam}} Jiwa</td>
+                <td>{{$tp->kristen}} Jiwa</td>
+                <td>{{$tp->katolik}} Jiwa</td>
+                @endforeach
                </tr>
                <tr>
                    <th>HINDU</th>
@@ -130,9 +166,12 @@
                    <th>KONGHUCU</th>
                </tr>
                <tr>
-                   <td>314 Jiwa</td>
-                   <td>30,253 Jiwa</td>
-                   <td>1,064 Jiwa</td>
+                @foreach ($penduduk_agama as $tp )
+
+                <td>{{$tp->hindu}} Jiwa</td>
+                <td>{{$tp->budha}} Jiwa</td>
+                <td>{{$tp->konghucu}} Jiwa</td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -149,10 +188,14 @@
                    <th>DAYAK</th>
                </tr>
                <tr>
-                   <td>1.010 Jiwa</td>
-                   <td>7.323 Jiwa</td>
-                   <td>3.759 Jiwa</td>
-                   <td>4.285 Jiwa</td>
+
+                @foreach ($penduduk_suku as $tp )
+
+                <td>{{$tp->jawa}} Jiwa</td>
+                <td>{{$tp->melayu}} Jiwa</td>
+                <td>{{$tp->bugis}} Jiwa</td>
+                <td>{{$tp->dayak}} Jiwa</td>
+                @endforeach
                </tr>
                <tr>
                    <th>CHINA</th>
@@ -161,10 +204,13 @@
                    <th>BATAK</th>
                </tr>
                <tr>
-                   <td>1.125 Jiwa</td>
-                   <td>150 Jiwa</td>
-                   <td>0 Jiwa</td>
-                   <td>0 Jiwa</td>
+                @foreach ($penduduk_suku as $tp )
+
+                <td>{{$tp->cina}} Jiwa</td>
+                <td>{{$tp->sunda}} Jiwa</td>
+                <td>{{$tp->madura}} Jiwa</td>
+                <td>{{$tp->batak}} Jiwa</td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -173,7 +219,24 @@
 
    <div class="modal" id="modal9">
        <div class="modal-content">
-           <img src="{{ asset('img/kecamatan/diagram_penduduk.png') }}" alt="">
+        <table>
+        <tr>
+            <th>Jumlah Penduduk Tahun Ini</th>
+            <th>Jumlah Penduduk Tahun Lalu</th>
+            <th>Jumlah Pertumbuhan (%)</th>
+
+        </tr>
+        <tr>
+
+         @foreach ($penduduk_pertumbuhan as $tp )
+
+         <td>{{$tp->jumlah_penduduk_thn_ini}} Jiwa</td>
+         <td>{{$tp->jumlah_penduduk_thn_lalu}} Jiwa</td>
+         <td>{{$tp->pertumbuhan}} %</td>
+
+         @endforeach
+        </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
@@ -187,9 +250,13 @@
                    <th>Tamat SLTP</th>
                </tr>
                <tr>
-                   <td>18,699 Jiwa</td>
-                   <td>53,502 Jiwa</td>
-                   <td>31,666 Jiwa</td>
+                @foreach ($penduduk_pendidikan as $tp )
+
+                <td>{{$tp->tidak_sekolah}} Jiwa</td>
+                <td>{{$tp->sd}} Jiwa</td>
+                <td>{{$tp->smp}} Jiwa</td>
+
+                @endforeach
                </tr>
                <tr>
                    <th>Tamat SLTA</th>
@@ -197,9 +264,13 @@
                    <th>Tamat UNIVERSITAS</th>
                </tr>
                <tr>
-                   <td>48,179 Jiwa</td>
-                   <td>5,144 Jiwa</td>
-                   <td>9,944 Jiwa</td>
+                @foreach ($penduduk_pendidikan as $tp )
+
+                <td>{{$tp->sma}} Jiwa</td>
+                <td>{{$tp->akademi}} Jiwa</td>
+                <td>{{$tp->universitas}} Jiwa</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -218,12 +289,15 @@
                    <th>Cabe</th>
                </tr>
                <tr>
-                   <td>10,446 Ha</td>
-                   <td>1,562 Ha</td>
-                   <td>396 Ha</td>
-                   <td>53 Ha</td>
-                   <td>300 Ha</td>
-                   <td>15 Ha</td>
+                @foreach ($lahan_garapan as $tp )
+
+                   <td>{{$tp->padi}} Ha</td>
+                   <td>{{$tp->jagung}} Ha</td>
+                   <td>{{$tp->ubi_kayu}} Ha</td>
+                   <td>{{$tp->kacang_panjang}} Ha</td>
+                   <td>{{$tp->kangkung}} Ha</td>
+                   <td>{{$tp->cabe}} Ha</td>
+                   @endforeach
                </tr>
                <tr>
                    <th>Jeruk Nipis</th>
@@ -234,12 +308,15 @@
                    <th>Kacang Tanah</th>
                </tr>
                <tr>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>205 Ha</td>
+                @foreach ($lahan_garapan as $tp )
+
+                   <td>{{$tp->jeruk_nipis}} Ha</td>
+                   <td>{{$tp->terong}} Ha</td>
+                   <td>{{$tp->mentimun}} Ha</td>
+                   <td>{{$tp->talas}} Ha</td>
+                   <td>{{$tp->tomat}} Ha</td>
+                   <td>{{$tp->kacang_tahan}} Ha</td>
+                   @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -255,9 +332,12 @@
                    <th>Tanah Basah</th>
                </tr>
                <tr>
-                   <td>500,00 Ha</td>
-                   <td>1.571,00 Ha</td>
-                   <td>4,403,00 Ha</td>
+                @foreach ($penggunaan_tanah as $tp )
+
+                   <td>{{$tp->tanah_sawah}} Ha</td>
+                   <td>{{$tp->tanah_kering}} Ha</td>
+                   <td>{{$tp->tanah_basah}} Ha</td>
+                   @endforeach
                </tr>
                <tr>
                    <th>Tanah Perkebunan</th>
@@ -265,9 +345,12 @@
                    <th>Tanah Hutan</th>
                </tr>
                <tr>
-                   <td>2,520,00 Ha</td>
-                   <td>26,80 Ha</td>
-                   <td>0 Ha</td>
+                @foreach ($penggunaan_tanah as $tp )
+
+                <td>{{$tp->tanah_perkebunan}} Ha</td>
+                <td>{{$tp->tanah_fasilitas}} Ha</td>
+                <td>{{$tp->tanah_hutan}} Ha</td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -278,14 +361,20 @@
        <div class="modal-content">
            <table>
                <tr>
+
                    <th>Kambing</th>
                    <th>Babi</th>
                    <th>Domba</th>
                </tr>
                <tr>
-                   <td>56 Ekor</td>
-                   <td>700 Ekor</td>
-                   <td>0 Ekor</td>
+                @foreach ($ternak_kecil as $tk )
+
+
+                   <td>{{$tk->kambing}}</td>
+                   <td>{{$tk->babi}}</td>
+                   <td>{{$tk->domba}}</td>
+
+                   @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -301,9 +390,14 @@
                    <th>Kuda</th>
                </tr>
                <tr>
-                   <td>24 Ekor</td>
-                   <td>0 Ekor</td>
-                   <td>0 Ekor</td>
+                @foreach ($ternak_besar as $tb )
+
+
+                <td>{{$tb->sapi}}</td>
+                <td>{{$tb->kerbau}}</td>
+                <td>{{$tb->kuda}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -321,11 +415,16 @@
                    <th>Kelinci</th>
                </tr>
                <tr>
-                   <td>1.255 Ekor</td>
-                   <td>850 Ekor</td>
-                   <td>90 Ekor</td>
-                   <td>9 Ekor</td>
-                   <td>10 Ekor</td>
+                @foreach ($ternak_unggas as $tu )
+
+
+                <td>{{$tu->ayam_kampung}}</td>
+                <td>{{$tu->ayam_ras}}</td>
+                <td>{{$tu->bebek}}</td>
+                <td>{{$tu->angsa}}</td>
+                <td>{{$tu->kelinci}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -344,12 +443,17 @@
                    <th>Usaha Bibit</th>
                </tr>
                <tr>
-                   <td>Ada</td>
-                   <td>Ada</td>
-                   <td>Ada</td>
-                   <td>Ada</td>
-                   <td>-</td>
-                   <td>-</td>
+                @foreach ($usaha_peternakan as $up )
+
+
+                <td>{{$up->peternakan_besar}}</td>
+                <td>{{$up->peternakan_kecil}}</td>
+                <td>{{$up->ternak_unggas}}</td>
+                <td>{{$up->pemotongan_ayam}}</td>
+                <td>{{$up->pakan_ternak}}</td>
+                <td>{{$up->usaha_bibit}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -363,7 +467,12 @@
                    <th>JENIS ALAT TANGGAP</th>
                </tr>
                <tr>
-                   <td>Jaring Insang, Pancing Tonda, Jala, pukat cincin</td>
+                @foreach ($alat_tangkap as $at )
+
+
+                <td>{{$at->alat_tangkap}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -381,10 +490,15 @@
                </tr>
                <tr class="divider"></tr>
                <tr>
-                   <td>0 Ha</td>
-                   <td>4,45 Ha</td>
-                   <td>1,0 Ha</td>
-                   <td>0 Ha</td>
+                @foreach ($perikanan_darat as $pd )
+
+
+                <td>{{$pd->perairan}} Ha</td>
+                <td>{{$pd->tambak}} Ha</td>
+                <td>{{$pd->kolam}} Ha</td>
+                <td>{{$pd->mina_padi}} Ha</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -422,11 +536,16 @@
                    <th>Tebu</th>
                </tr>
                <tr>
-                   <td>335 Ha</td>
-                   <td>1,078 Ha</td>
-                   <td>20 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
+                @foreach ($tanah_perkebunan as $tp )
+
+
+                <td>{{$tp->kelapa}} Ha</td>
+                <td>{{$tp->karet}} Ha</td>
+                <td>{{$tp->kelapa_sawit}} Ha</td>
+                <td>{{$tp->coklat}} Ha</td>
+                <td>{{$tp->tebu}} Ha</td>
+
+                @endforeach
                </tr>
                <tr>
                    <th>Pinang</th>
@@ -436,11 +555,17 @@
                    <th>Sahang</th>
                </tr>
                <tr>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
+                @foreach ($tanah_perkebunan as $tp )
+
+
+                <td>{{$tp->pinang}} Ha</td>
+                <td>{{$tp->sagu}} Ha</td>
+                <td>{{$tp->pala}} Ha</td>
+                <td>{{$tp->kopi}} Ha</td>
+                <td>{{$tp->sahang}} Ha</td>
+
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -451,33 +576,16 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Kelapa</th>
-                   <th>Karet</th>
-                   <th>Kelapa Sawit</th>
-                   <th>Coklat</th>
-                   <th>Tebu</th>
+                @foreach ($hasil_produksi_perkebunan as $tp )
+                <th>{{$tp->jenis_perkebunan}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>123 Ha</td>
-                   <td>197 Ha</td>
-                   <td>40,000 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-               </tr>
-               <tr>
-                   <th>Pinang</th>
-                   <th>Sagu</th>
-                   <th>Pala</th>
-                   <th>Kopi</th>
-                   <th>Sahang</th>
-               </tr>
-               <tr>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-                   <td>0 Ha</td>
-               </tr>
+                @foreach ($hasil_produksi_perkebunan as $tp )
+                <td>{{$tp->jumlah}} Ha</td>
+
+                @endforeach
+            </tr>
            </table>
            <button class="close-modal">Tutup</button>
        </div>
@@ -485,221 +593,157 @@
 
    <div class="modal" id="modal22">
        <div class="modal-content">
-           <table>
-               <tr>
-                   <th>Lindung</th>
-                   <th>Produksi</th>
-                   <th>HTI</th>
-                   <th>Konversi</th>
-               </tr>
-               <tr>
-                   <td>Ada</td>
-                   <td>Ada</td>
-                   <td>Ada</td>
-                   <td>Ada</td>
-               </tr>
-           </table>
+        <table>
+            <tr>
+             @foreach ($luas_hutan_menurut_penggunaan as $tp )
+             <th>{{$tp->jenis_hutan}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($luas_hutan_menurut_penggunaan as $tp )
+             <td>{{$tp->status}}</td>
+
+             @endforeach
+         </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal23">
        <div class="modal-content">
-           <table>
-               <tr>
-                   <th>Negara</th>
-                   <th>Hutan Rakyat</th>
-                   <th>Hutan Tanaman Rakyat</th>
-                   <th>Konversi /HTI</th>
-               </tr>
-               <tr>
-                   <td>1,815.82 Ha</td>
-                   <td>1,530.00 Ha</td>
-                   <td>1,215.00 Ha</td>
-                   <td>780.10 Ha</td>
-               </tr>
-           </table>
+        <table>
+            <tr>
+             @foreach ($luas_hutan_menurut_status as $tp )
+             <th>{{$tp->jenis_hutan}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($luas_hutan_menurut_status as $tp )
+             <td>{{$tp->jumlah}} Ha</td>
+
+             @endforeach
+         </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal24">
        <div class="modal-content">
-           <table>
-               <tr>
-                   <th>A</th>
-                   <th>B</th>
-                   <th>C</th>
-               </tr>
-               <tr>
-                   <td> - </td>
-                   <td> - </td>
-                   <td>Ada</td>
-               </tr>
-           </table>
+        <table>
+            <tr>
+             @foreach ($tambang_galian as $tp )
+             <th>{{$tp->nama}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($tambang_galian as $tp )
+             <td>{{$tp->status}}</td>
+
+             @endforeach
+         </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal25">
        <div class="modal-content">
-           <table>
-               <tr>
-                   <th>Batu Putih</th>
-                   <th>Batu Apung</th>
-                   <th>Gips</th>
-                   <th>Batu Kapur</th>
-                   <th>Garam</th>
-                   <th>Batu Gunung</th>
-                   <th>Baouksit</th>
-                   <th>Tanah Liat</th>
-                   <th>Pasir</th>
-               </tr>
-               <tr>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
-               </tr>
-           </table>
+        <table>
+            <tr>
+             @foreach ($usaha_tambang_galian as $tp )
+             <th>{{$tp->nama}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($usaha_tambang_galian as $tp )
+             <td>{{$tp->jumlah}}</td>
+
+             @endforeach
+         </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal26">
        <div class="modal-content">
-           <table>
-               <tr>
-                   <th>Tapioka</th>
-                   <th>Tepung Beras</th>
-                   <th>Roti</th>
-                   <th>Minuman</th>
-                   <th>Gula</th>
-                   <th>Gilingan Padi</th>
-               </tr>
-               <tr>
-                   <td> - </td>
-                   <td>44</td>
-                   <td> - </td>
-                   <td>4</td>
-                   <td> - </td>
-                   <td>60</td>
-               </tr>
-           </table>
+        <table>
+            <tr>
+             @foreach ($pengelolaan_pangan as $tp )
+             <th>{{$tp->nama}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($pengelolaan_pangan as $tp )
+             <td>{{$tp->jumlah}}</td>
+
+             @endforeach
+         </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal27">
        <div class="modal-content">
-           <table>
-               <tr>
-                   <th>Mabel</th>
-                   <th>Kompor Minyak</th>
-                   <th>Lampu Senter</th>
-               </tr>
-               <tr>
-                   <td>275 Unit</td>
-                   <td> - </td>
-                   <td> - </td>
-               </tr>
-           </table>
+        <table>
+            <tr>
+             @foreach ($jumlah_indurstri_perabotan as $tp )
+             <th>{{$tp->nama}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($jumlah_indurstri_perabotan as $tp )
+             <td>{{$tp->jumlah}}</td>
+
+             @endforeach
+         </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal28">
        <div class="modal-content">
-           <table>
-               <tr>
-                   <th>Koperasi</th>
-                   <th>Pertokoan</th>
-                   <th>Pasar</th>
-                   <th>Perusahaan</th>
-               </tr>
-               <tr>
-                   <td>96</td>
-                   <td>595</td>
-                   <td>6</td>
-                   <td>30</td>
-               </tr>
-           </table>
+        <table>
+            <tr>
+             @foreach ($aktivitas_perekonomian as $tp )
+             <th>{{$tp->nama}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($aktivitas_perekonomian as $tp )
+             <td>{{$tp->jumlah}}</td>
+
+             @endforeach
+         </tr>
+        </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal29">
        <div class="modal-content">
-           <table>
-               <thead>
-                   <tr>
-                       <th>NAMA OBYEK WISATA</th>
-                       <th>Jumlah</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr>
-                       <td>- Fresh Resto</td>
-                       <td rowspan="18" class="jumlah">18</td>
-                   </tr>
-                   <tr>
-                       <td>- Waterpark Paradese Q</td>
-                   </tr>
-                   <tr>
-                       <td>- Wisata Hutan Albazia</td>
-                   </tr>
-                   <tr>
-                       <td>- Hotel Dangau</td>
-                   </tr>
-                   <tr>
-                       <td>- Industri Pembuatan Alat</td>
-                   </tr>
-                   <tr>
-                       <td>- Musik Sapek</td>
-                   </tr>
-                   <tr>
-                       <td>- Vihara Maitreya</td>
-                   </tr>
-                   <tr>
-                       <td>- Mall Transmart</td>
-                   </tr>
-                   <tr>
-                       <td>- Mall Gaia</td>
-                   </tr>
-                   <tr>
-                       <td>- Makam Pahlawan</td>
-                   </tr>
-                   <tr>
-                       <td>- Taman Fantansi Air</td>
-                   </tr>
-                   <tr>
-                       <td>- Danau Hoce</td>
-                   </tr>
-                   <tr>
-                       <td>- Makam Sultan Manggis</td>
-                   </tr>
-                   <tr>
-                       <td>- Vihara Tri Darma</td>
-                   </tr>
-                   <tr>
-                       <td>- Sukulanting</td>
-                   </tr>
-                   <tr>
-                       <td>- Kampung Budaya</td>
-                   </tr>
-                   <tr>
-                       <td>- Qubu Resort</td>
-                   </tr>
-                   <tr>
-                       <td>- Pulau Binga</td>
-                   </tr>
-               </tbody>
-           </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>NAMA OBYEK WISATA</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($jumlah_obyek_wisata as $tp )
+                <tr>
+                    <td>{{$tp->nama_obyek}}</td>
+                    <td>{{$tp->jumlah}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+
            <button class="close-modal">Tutup</button>
        </div>
    </div>
@@ -719,12 +763,15 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>NAMA SANGGAR BUDAY</th>
+                   <th>NAMA SANGGAR BUDAYA</th>
                    <th>Jumlah</th>
                </tr>
                <tr>
-                   <td>Kuda Lumping Sri kencana dan Wayang Kulit (Nasti Sri Laras)</td>
-                   <td>2</td>
+                @foreach ($jumlah_sanggar_budaya as $tp )
+                <tr>
+                    <td>{{$tp->nama}}</td>
+                </tr>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -735,18 +782,16 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Puskesmas</th>
-                   <th>Pustu</th>
-                   <th>Posyandu</th>
-                   <th>Polindes</th>
-                   <th>Poskesdes</th>
+                @foreach ($jumlah_fasilitas_kesehatan as $tp )
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>4</td>
-                   <td>19</td>
-                   <td>161</td>
-                   <td>19</td>
-                   <td>20</td>
+                @foreach ($jumlah_fasilitas_kesehatan as $tp )
+                <td>{{$tp->jumlah}}</td>
+
+                @endforeach
+            </tr>
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -757,63 +802,58 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Dokter</th>
-                   <th>Bidan</th>
-                   <th>Mantri Kesehatan/Perawat</th>
-                   <th>Dukun bayi Terlatih</th>
+                @foreach ($jumlah_tenaga_kesehatan as $tp )
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>35</td>
-                   <td>86</td>
-                   <td>55</td>
-                   <td>31</td>
-               </tr>
+                @foreach ($jumlah_tenaga_kesehatan as $tp )
+                <td>{{$tp->jumlah}}</td>
+
+                @endforeach
+            </tr>
            </table>
            <button class="close-modal">Tutup</button>
        </div>
    </div>
 
    <div class="modal" id="modal33">
-       <div class="modal-content">
-           <table>
-               <tr>
-                   <th>Sumur Galian</th>
-                   <th>PAH</th>
-                   <th>Sumur Bor</th>
-                   <th>MCK Umum</th>
-               </tr>
-               <tr>
-                   <td>49,504</td>
-                   <td>3,027</td>
-                   <td>3,112</td>
-                   <td> - </td>
-               </tr>
-           </table>
-           <button class="close-modal">Tutup</button>
-       </div>
-   </div>
+    <div class="modal-content">
+        <table>
+
+
+            <tr>
+                @foreach ($airbersih as $air )
+                <th>{{$air->nama}}</th>
+
+                @endforeach
+            </tr>
+            <tr>
+                @foreach ($airbersih as $air )
+
+
+                <td>{{$air->jumlah}}</td>
+
+                @endforeach
+            </tr>
+         </table>
+        <button class="close-modal">Tutup</button>
+    </div>
+</div>
 
    <div class="modal" id="modal34">
        <div class="modal-content">
            <table>
                <tr>
-                   <th colspan="2">Islam</th>
-                   <th rowspan="2">Kristen<br>Protestan</th>
-                   <th rowspan="2">Kristen<br>Katolik</th>
-                   <th rowspan="2">Hindu</th>
-                   <th rowspan="2">Budha</th>
+                @foreach ($jumlah_sarana_ibadag as $tp )
+                <th>{{$tp->sarana_ibadah}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td class="sub-header">Mesjid</td>
-                   <td class="sub-header">Surau</td>
-               </tr>
-               <tr>
-                   <td>140</td>
-                   <td>165</td>
-                   <td>21</td>
-                   <td>13</td>
-                   <td>1</td>
-                   <td>6</td>
+                @foreach ($jumlah_sarana_ibadag as $tp )
+                <td>{{$tp->jumlah}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -824,14 +864,15 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Di Aspal</th>
-                   <th>Kerikil/Perkeras</th>
-                   <th>Tanah</th>
+                @foreach ($panjang_jalan as $tp )
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td> - </td>
-                   <td> - </td>
-                   <td> - </td>
+                @foreach ($panjang_jalan as $tp )
+                <td>{{$tp->panjang}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -846,14 +887,16 @@
                        <th colspan="2">Fasilitas Pendukung</th>
                    </tr>
                </thead>
-               <tr>
-                   <td class="yellow-cell">Olahraga</td>
-                   <td class="yellow-cell">Balai Pertemuan</td>
-               </tr>
-               <tr>
-                   <td class="gray-cell">186</td>
-                   <td class="gray-cell">14</td>
-               </tr>
+               @foreach ($jumlah_fasilitas_pendukung as $tp )
+             <th>{{$tp->nama}}</th>
+             @endforeach
+            </tr>
+            <tr>
+             @foreach ($jumlah_fasilitas_pendukung as $tp )
+             <td>{{$tp->jumlah}}</td>
+
+             @endforeach
+         </tr>
            </table>
            <button class="close-modal">Tutup</button>
        </div>
@@ -863,14 +906,15 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Usia Kerja</th>
-                   <th>Usia Kerja yang Berkerja</th>
-                   <th>Usia Kerja yang tidak Berkerja</th>
+                @foreach ($ekonomi_angkatan_kerja as $tp )
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>1500</td>
-                   <td>1000</td>
-                   <td>500</td>
+                @foreach ($ekonomi_angkatan_kerja as $tp )
+                <td>{{$tp->jumlah}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -881,20 +925,15 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Tidak Tamat SD</th>
-                   <th>SD</th>
-                   <th>SLTP</th>
-                   <th>SLTA</th>
-                   <th>DIPLOMA</th>
-                   <th>SARJANA</th>
+                @foreach ($jumlah_angkatan_kerja as $tp )
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>19,655</td>
-                   <td>54.412</td>
-                   <td>32,560</td>
-                   <td>47,020</td>
-                   <td>5,009</td>
-                   <td>9,281</td>
+                @foreach ($jumlah_angkatan_kerja as $tp )
+                <td>{{$tp->jumlah}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -915,11 +954,14 @@
                    <th>Rasio</th>
                </tr>
                <tr>
-                   <td>69,396</td>
-                   <td>50,877</td>
-                   <td>1,054</td>
-                   <td>51,920</td>
-                   <td>99,60%</td>
+                @foreach ($jumlah_pelanggan_listrik as $tp )
+
+                <td>{{ $tp->jumlah_penduduk}}</td>
+                <td>{{$tp->pln}}</td>
+                <td>{{$tp->non_pln}}</td>
+                <td>{{ $tp->jumlah_pln }}</td> <!-- Total PLN + Non-PLN -->
+                <td>{{ number_format($tp->rasio, 2) }}%</td> <!-- Rasio dalam persen -->
+                 @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -935,9 +977,12 @@
                    <th>Rasio</th>
                </tr>
                <tr>
-                   <td>51,242</td>
-                   <td>8,903</td>
-                   <td>576,125%</td>
+                @foreach ($jumlah_penduduk_miskin as $tp )
+
+                <td>{{$tp->jumlah_penduduk}}</td>
+                <td>{{$tp->jumlah_penduduk_miskin}}</td>
+                <td>{{ number_format($tp->rasio, 2) }}%</td> <!-- Rasio dalam persen -->
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -948,18 +993,15 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>TK</th>
-                   <th>SD</th>
-                   <th>SLTP</th>
-                   <th>SLTA</th>
-                   <th>Perguruan Tinggi</th>
+                @foreach ($jumlah_fasilitas_pendidikan as $tp )
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>4</td>
-                   <td>15</td>
-                   <td>10</td>
-                   <td>8</td>
-                   <td> - </td>
+                @foreach ($jumlah_fasilitas_pendidikan as $tp )
+                <td>{{$tp->jumlah}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -970,9 +1012,12 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th colspan="5">Jumlah Anak Usia Sekolah</th>
-                   <th colspan="4">Jumlah Anak Sekolah</th>
-                   <th colspan="3">Jumlah Anak Putus Sekolah</th>
+                @foreach ($jumlah_anak_usia_sekolah as $tp)
+
+                <th colspan="5">{{$tp->kategori}}</th>
+                @endforeach
+
+
                </tr>
                <tr>
                    <td>TK</td>
@@ -981,24 +1026,21 @@
                    <td>SLTA</td>
                    <td>Perguruan Tinggi</td>
                    <td>TK</td>
-                   <td>SLTP</td>
-                   <td>SLTA</td>
                    <td>SD</td>
                    <td>SLTP</td>
                    <td>SLTA</td>
+                   <td>Perguruan Tinggi</td>
+
                </tr>
                <tr>
-                   <td>150</td>
-                   <td>200</td>
-                   <td>200</td>
-                   <td>200</td>
-                   <td>100</td>
-                   <td>100</td>
-                   <td>150</td>
-                   <td>150</td>
-                   <td>50</td>
-                   <td>50</td>
-                   <td>50</td>
+                @foreach ($jumlah_anak_usia_sekolah as $tp )
+
+                <td>{{$tp->tk}}</td>
+                <td>{{$tp->sd}}</td>
+                <td>{{$tp->sltp}}</td>
+                <td>{{$tp->slta}}</td>
+                <td>{{$tp->perguruan_tinggi}}</td>
+                   @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1009,8 +1051,10 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th colspan="7" class="header">Sekolah Negeri</th>
-                   <th colspan="7" class="header">Sekolah Swasta</th>
+                @foreach ($jumlah_anak_sekolah as $tp)
+
+                <th colspan="6">{{$tp->kategori}}</th>
+                @endforeach
                </tr>
                <tr>
                    <td>SD</td>
@@ -1019,6 +1063,7 @@
                    <td>MTS</td>
                    <td>SLTA</td>
                    <td>ALIYAH</td>
+
                    <td>SD</td>
                    <td>MI</td>
                    <td>SLTP</td>
@@ -1027,19 +1072,17 @@
                    <td>ALIYAH</td>
                </tr>
                <tr>
-                   <td>7</td>
-                   <td>2</td>
-                   <td>3</td>
-                   <td>2</td>
-                   <td>4</td>
-                   <td>1</td>
-                   <td>1</td>
-                   <td>3</td>
-                   <td>3</td>
-                   <td>3</td>
-                   <td>3</td>
-                   <td>3</td>
-               </tr>
+                @foreach ($jumlah_anak_sekolah as $tp)
+
+                <td>{{$tp->sd}}</td>
+                <td>{{$tp->mi}}</td>
+                <td>{{$tp->sltp}}</td>
+                <td>{{$tp->mts}}</td>
+                <td>{{$tp->slta}}</td>
+                <td>{{$tp->aliyah}}</td>
+
+                @endforeach
+            </tr>
            </table>
            <button class="close-modal">Tutup</button>
        </div>
@@ -1049,8 +1092,8 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th colspan="3" class="header">Tingkat Guru</th>
-                   <th colspan="2" class="header">Status Guru</th>
+                   <th colspan="3">Tingkat Guru</th>
+                   <th colspan="2">Status Guru</th>
                </tr>
                <tr>
                    <td>SD</td>
@@ -1060,11 +1103,16 @@
                    <td>Swasta</td>
                </tr>
                <tr>
-                   <td>30</td>
-                   <td>30</td>
-                   <td>30</td>
-                   <td>2</td>
-                   <td>5</td>
+
+                 @foreach ($jumlah_tenaga_guru as $tp)
+
+                <td>{{$tp->sd}}</td>
+                <td>{{$tp->sltp}}</td>
+                <td>{{$tp->slta}}</td>
+                <td>{{$tp->negeri}}</td>
+                <td>{{$tp->swasta}}</td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1075,18 +1123,16 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>SLTA</th>
-                   <th>D I</th>
-                   <th>D II</th>
-                   <th>D III</th>
-                   <th>Sarjana</th>
+                @foreach ($jumlah_tenaga_guru_menurut_pendidikan as $tp )
+
+
+                   <th>{{$tp->nama}}</th>
+
                </tr>
                <tr>
-                   <td> - </td>
-                   <td> - </td>
-                   <td>2</td>
-                   <td>4</td>
-                   <td>5</td>
+                   <td> {{$tp->jumlah}} </td>
+
+                   @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1097,16 +1143,19 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Roda 2</th>
-                   <th>Roda 4</th>
-                   <th>Roda 6</th>
-                   <th>Motor Air / Perahu Motor</th>
-               </tr>
-               <tr>
-                   <td>113,819</td>
-                   <td>12,794</td>
-                   <td>4,870</td>
-                   <td>31</td>
+                @foreach ($jumlah_pemilik_kendaraan as $tp )
+
+
+                <th>{{$tp->nama}}</th>
+                @endforeach
+
+            </tr>
+            <tr>
+                @foreach ($jumlah_pemilik_kendaraan as $tp )
+
+                <td> {{$tp->jumlah}} </td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1117,12 +1166,18 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Jarak Tempuh (KM)</th>
-                   <th>Waktu Tempuh</th>
+                @foreach ($jarak_waktu_tempuh as $tp )
+
+
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>95</td>
-                   <td>480</td>
+                @foreach ($jarak_waktu_tempuh as $tp )
+
+                <td> {{$tp->jumlah}} </td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1137,8 +1192,12 @@
                    <th>Keterangan</th>
                </tr>
                <tr>
-                   <td>50</td>
-                   <td> - </td>
+                @foreach ($jarak_waktu_tempuh as $tp )
+
+                <td> {{$tp->jumlah}} </td>
+                <td> {{$tp->keterangan}} </td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1149,12 +1208,18 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Balai Desa (ada & tidak)</th>
-                   <th>Kantor Desa (ada & tidak)</th>
+                @foreach ($prasarana_pemerintahan_desa as $tp )
+
+
+                <th>{{$tp->nama}}</th>
+                @endforeach
                </tr>
                <tr>
-                   <td>Tidak</td>
-                   <td>Ada</td>
+                @foreach ($prasarana_pemerintahan_desa as $tp )
+
+                <td> {{$tp->keterangan}} </td>
+
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1171,10 +1236,13 @@
                    <th>Jumlah</th>
                </tr>
                <tr>
-                   <td>terisi</td>
-                   <td>terisi</td>
-                   <td>terisi</td>
-                   <td> - </td>
+                @foreach ($pemerintahan_kecamatan as $tp )
+
+                <td> {{$tp->camat}} </td>
+                <td> {{$tp->sekcam}} </td>
+                <td> {{$tp->staff}} </td>
+                <td> {{$tp->jumlah}} </td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1185,14 +1253,17 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Pendidikan Camat</th>
-                   <th>Pendidikan Sekcamat</th>
-                   <th>Terisi</th>
+                @foreach ($tingkat_pendidikan_aparat_kecamatan as $tp )
+
+
+                <th>{{$tp->nama}}</th>
+                   @endforeach
                </tr>
                <tr>
-                   <td> - </td>
-                   <td> - </td>
-                   <td>terisi</td>
+                @foreach ($tingkat_pendidikan_aparat_kecamatan as $tp )
+
+                <td>{{$tp->tingkat_pendidikan}}</td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1210,11 +1281,14 @@
                    <th>Jumlah</th>
                </tr>
                <tr>
-                   <td> - </td>
-                   <td>6</td>
-                   <td>9</td>
-                   <td>2</td>
-                   <td>17</td>
+                @foreach ($pangkatdan_golongan as $tp )
+
+                <td> {{$tp->i}} </td>
+                <td> {{$tp->ii}} </td>
+                <td> {{$tp->iii}} </td>
+                <td> {{$tp->iv}} </td>
+                <td> {{$tp->jumlah}} </td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1225,12 +1299,13 @@
        <div class="modal-content">
            <table>
                <tr>
-                   <th>Staff</th>
-                   <th>Jumlah</th>
+                   <th>Jumlah Staff</th>
                </tr>
                <tr>
-                   <td> - </td>
-                   <td> - </td>
+                @foreach ($jumlah_staff as $tp )
+
+                <td> {{$tp->jumlah_staff}} </td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1251,11 +1326,14 @@
                    <th>Rusak Berat</th>
                </tr>
                <tr>
-                   <td>-</td>
-                   <td>-</td>
-                   <td>-</td>
-                   <td>-</td>
-                   <td>-</td>
+                @foreach ($prasarana_pemerintahan as $tp )
+
+                <td> {{$tp->nama}} </td>
+                <td> {{$tp->jumlah}} </td>
+                <td> {{$tp->baik}} </td>
+                <td> {{$tp->ringan}} </td>
+                <td> {{$tp->berat}} </td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1270,8 +1348,11 @@
                    <th>Keterangan</th>
                </tr>
                <tr>
-                   <td>Terlaksana</td>
-                   <td>Terlengkap</td>
+                @foreach ($pelaksanaan_profil_kecamatan as $tp )
+
+                   <td>{{$tp->uraian}}</td>
+                   <td>{{$tp->keterangan}}</td>
+                @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>
@@ -1291,10 +1372,13 @@
                    <th>SKT</th>
                </tr>
                <tr>
-                   <td>-</td>
-                   <td>0,5 Ha</td>
-                   <td>/</td>
-                   <td>-</td>
+                @foreach ($tanah_pemda_di_kecamatan as $tp )
+
+                   <td>{{$tp->uraian}}</td>
+                   <td>{{$tp->jumlah}}</td>
+                   <td>{{$tp->sertifikat}}</td>
+                   <td>{{$tp->skt}}</td>
+                   @endforeach
                </tr>
            </table>
            <button class="close-modal">Tutup</button>

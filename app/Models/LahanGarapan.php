@@ -32,7 +32,7 @@ class LahanGarapan extends Model
         'mentimun',
         'talas',
         'tomat',
-        'kacang_tanah',
+        'kacang_tahan',
     ];
     public static function boot()
     {
