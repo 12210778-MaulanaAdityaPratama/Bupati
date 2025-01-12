@@ -16,7 +16,9 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BeritaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BeritaResource\RelationManagers;
+use Dompdf\FrameDecorator\Text;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 
 class BeritaResource extends Resource
 {
@@ -29,7 +31,23 @@ class BeritaResource extends Resource
         return $form
             ->schema([
                 TextInput::make('nama_berita'),
-                Textarea::make('isi_berita'),
+                RichEditor::make('isi_berita')
+                    ->toolbarButtons([
+
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ]),
                 FileUpload::make('gambar')
                     ->image() // Validasi bahwa file yang diupload adalah gambar
                     ->directory('berita-images') // Menyimpan gambar di direktori `storage/app/public/berita-images`
@@ -54,11 +72,11 @@ class BeritaResource extends Resource
                     ->height(200)
                     ->square() // Opsional: Tampilkan gambar berbentuk persegi
                     ->sortable(),
-                textColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label('Create')
                     ->dateTime('d-m-Y')
                     ->sortable(),
-                textColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label('Update')
                     ->dateTime('d-m-Y')
                     ->sortable(),
