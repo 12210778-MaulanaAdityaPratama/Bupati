@@ -44,6 +44,9 @@ Route::get('/kecamatan/batampar', [BatuAmparController::class, 'index'])->name('
 Route::get('/kecamatan/kubu', [KubuController::class, 'index'])->name('kubu');
 Route::get('/kecamatan/telukpekedai', [TelukPakedaiController::class, 'index'])->name('telukpekedai');
 Route::get('/kecamatan/terentang', [TerentangController::class, 'index'])->name('terentang');
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('detailberita');
+
 
 
 
@@ -179,9 +182,6 @@ Route::get('/tugaspokok', function () {
     return view('tugaspokok.tugaspokok');
 })->name('tugaspokok');
 
-Route::get('/berita', function () {
-    return view('berita.berita');
-})->name('berita');
 
 Route::get('/pengumuman', function () {
     return view('pengumuman.pengumuman');
@@ -207,9 +207,3 @@ Route::get('/contact', function () {
 Route::get('/test', function () {
     return view('test');
 })->name('test');
-
-// menampilkan detail berita
-Route::get('/detail-berita', function () {
-    return view('berita.detailberita');
-})->name('detailberita');
-

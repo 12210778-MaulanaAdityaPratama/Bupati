@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/berita/berita.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,98 +82,63 @@
     </div>
 
 
+    <form method="GET" action="{{ route('berita') }}" class="my-3 d-flex justify-content-center">
+        <div class="input-group w-50">
+            <input type="text" class="form-control" name="search" placeholder="Cari berita lainnya" value="{{ request()->input('search') }}" aria-label="Search" />
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <!-- Clear Button -->
+            <a href="{{ route('berita') }}" class="ml-2 btn btn-secondary">
+                <i class="fas fa-times"></i> Clear
+            </a>
+        </div>
+    </form>
     <article class="all-browsers">
+
         <h1>Berita Terkini</h1>
 
+
+
+
+
+
+
+
         <!-- First News Item -->
-        <a href="{{ route('detailberita') }}">
+        @foreach($berita as $item)
+
+
             <article class="browser">
-                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
+                <img src="{{ asset('storage/berita-images/' . $item->gambar) }}" alt="">
                 <div>
-                    <h2>Lorem, ipsum.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
-                        sit
-                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
-                        suscipit
-                        laborum eveniet nulla alias, soluta accusamus sint.</p>
+                    <a href="{{ route('detailberita', $item->id) }}">
+                    <h2>{{ $item->nama_berita }}</h2>
+                    </a>
+                    <p>
+                        {!! strlen($item->isi_berita) > 100 ? \Illuminate\Support\Str::limit($item->isi_berita, 100, ' ...') : $item->isi_berita !!}
+                        @if(strlen($item->isi_berita) > 100)
+                            <a href="{{ route('detailberita', $item->id) }}">{{ __('Baca Selengkapnya') }}</a>
+                        @endif
+                    </p>
+
+
+
+
                 </div>
             </article>
         </a>
+        @endforeach
 
-        <!-- Second News Item -->
-        <a href="{{ route('detailberita') }}">
-            <article class="browser">
-                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
-                <div>
-                    <h2>Mozilla Firefox</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
-                        sit
-                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
-                        suscipit
-                        laborum eveniet nulla alias, soluta accusamus sint.</p>
-                </div>
-            </article>
-        </a>
 
-        <!-- Third News Item -->
-        <a href="{{ route('detailberita') }}">
-            <article class="browser">
-                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
-                <div>
-                    <h2>Microsoft Edge</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
-                        sit
-                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
-                        suscipit
-                        laborum eveniet nulla alias, soluta accusamus sint.</p>
-                </div>
-            </article>
-        </a>
 
-        <!-- Fourth News Item -->
-        <a href="{{ route('detailberita') }}">
-            <article class="browser">
-                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
-                <div>
-                    <h2>Opera</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
-                        sit
-                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
-                        suscipit
-                        laborum eveniet nulla alias, soluta accusamus sint.</p>
-                </div>
-            </article>
-        </a>
 
-        <!-- Fifth News Item -->
-        <a href="{{ route('detailberita') }}">
-            <article class="browser">
-                <img src="{{ asset('img/news/beritaterkini.png') }}" alt="#">
-                <div>
-                    <h2>Safari</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam et quod ducimus porro ab officia
-                        sit
-                        sed esse commodi atque expedita dolor quae vero, at obcaecati dolore deserunt nulla natus quas,
-                        aperiam dolores totam! Quibusdam culpa ratione facilis deleniti aspernatur similique, eaque
-                        suscipit
-                        laborum eveniet nulla alias, soluta accusamus sint.</p>
-                </div>
-            </article>
-        </a>
 
-        <div class="pagination">
-            <button>&laquo; Prev</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>Next &raquo;</button>
+        <div class="pagination justify-content-center">
+            {{ $berita->appends(['search' => request()->input('search')])->links('pagination::bootstrap-5') }}
         </div>
+
     </article>
 
     <div class="header-footer">

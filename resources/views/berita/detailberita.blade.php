@@ -84,137 +84,58 @@
     <div class="container">
         <div class="main-content">
             <img alt="A group of people standing in a field with trees in the background" height="400"
-                src="{{ asset('img/news/beritaterkini.png') }}" width="800" />
+                src="{{ asset('storage/berita-images/' . $berita->gambar) }}" width="800" />
             <h1>
-                PJ BUPATI Survey mendatangi Lokasi Kecamatan Baru Kumpai Raya
+                {{$berita->nama_berita}}
             </h1>
             <div class="meta">
-                <i class="far fa-clock">
-                </i>
-                13:52 WIB
-                <i class="fas fa-calendar-alt" style="margin-left: 20px;">
-                </i>
-                SELASA
-                <i class="fas fa-calendar-day" style="margin-left: 20px;">
-                </i>
-                07 NOVEMBER 2023
+                <!-- Menampilkan Jam -->
+                <i class="far fa-clock"></i>
+                {{ $berita->created_at->format('H:i') }} WIB
+
+                <!-- Menampilkan Hari -->
+                <i class="fas fa-calendar-alt" style="margin-left: 20px;"></i>
+                {{ $berita->created_at->translatedFormat('l') }}
+
+                <!-- Menampilkan Tanggal -->
+                <i class="fas fa-calendar-day" style="margin-left: 20px;"></i>
+                {{ $berita->created_at->format('d-m-Y') }}
             </div>
+
             <p>
-                PROKOPIM KUBU RAYA - Bupati Kubu Raya Muda Mahendrawan membuka kegiatan Penguatan Konsep Pola Pengasuhan
-                Bahagia bagi Komunitas (Parenting) Pendidikan Anak Usia Dini (PAUD), Senin (6/11), di Hotel Dangau Kubu
-                Raya.
-            </p>
-            <p>
-                Bupati Muda menyampaikan kegiatan penguatan konsep pola pengasuhan bagi komunitas PAUD merupakan upaya
-                menyamakan langkah untuk melatih dan mengingatkan bahwa pola asuh sangat penting. Khususnya dengan
-                melihat ekosistem yang ada di sekitar, yaitu semua yang dapat memengaruhi.
-            </p>
-            <p>
-                “Terkait parenting atau pola asuh ini, ada pelatihan dengan tujuan untuk menciptakan adanya rasa tenang
-                dan kenyamanan di dalam PAUD itu,” kata Bupati Muda.
-            </p>
-            <p>
-                Melalui upaya penguatan PAUD, pemerintah kabupaten melalui Dinas Pendidikan dan Kebudayaan, kata Bupati
-                Muda, hingga kini sudah berupaya untuk meningkatkan insentif bagi guru PAUD, penguatan mutu dan mengejar
-                kegiatan Gebyar PAUD di tingkat kecamatan.
-            </p>
-            <p>
-                “Ini berarti sudah menunjukkan rasa bahagia dan optimis. Semua bisa ikut terlibat pada Gebyar PAUD di
-                tingkat kecamatan. Kalau Gebyar PAUD di tingkat Kabupaten, yang ikut itu hanya keterwakilan saja,” ujar
-                Bupati Muda.
-            </p>
-            <p>
-                Gebyar PAUD ini, kata Bupati Muda, sangat bermakna dan berkontribusi. Karena anak-anak usia dini akan
-                lebih optimis dan bahagia serta akan menumbuhkan daya imajinasi yang baik.
-            </p>
-            <p>
-                “PAUD-PAUD di Kubu Raya ini sudah jauh punya terobosan-terobosan. Terlebih dengan langkah-langkah yang
-                sudah menjamin pelayanan kesehatan yang sudah bebas biaya, maka di situ sudah memunculkan keterangan,”
-                ucap Bupati Muda.
-            </p>
-            <p>
-                Bahagia, kata Bupati Muda, harus terus diperjuangkan. Semua pihak harus punya nyali untuk bahagia.
-                Karena itu, membangun dan mewujudkan suasana bahagia itu menjadi visi Kabupaten Kubu Raya.
-            </p>
-            <p>
-                “Karena itu adalah sebuah proses perjuangan hidup kita. Dari mulai anak dan kalangan ibu wajib
-                membahagiakannya,” kata Bupati Muda.
-            </p>
-            <p>
-                (Jaka)
+                {!! $berita->isi_berita !!}
             </p>
         </div>
         <div class="sidebar">
-            <div class="search-bar">
-                <input placeholder="cari berita lainnya" type="text" />
-                <button>
-                    <i class="fas fa-search">
-                    </i>
-                </button>
-            </div>
+
             <div class="news-item">
+                @foreach($beritaLainnya as $item)
+
                 <img alt="A group of people standing and holding certificates" height="150"
-                    src="{{ asset('img/news/sideberita1.png') }}" width="150" />
+                    src="{{ asset('storage/berita-images/' . $item->gambar) }}" width="150" />
                 <div class="news-item-content">
                     <h3>
-                        Bupati Muda Serahkan Bantuan untuk 89 Rumah Ibadah
+                        <a href="{{ route('detailberita', $item->id) }}">
+                        {{ $item->nama_berita }}
+                        </a>
                     </h3>
                     <div class="meta">
                         <i class="fas fa-calendar-alt">
                         </i>
-                        SELASA
+                        {{ $berita->created_at->translatedFormat('l') }}
                         <i class="fas fa-calendar-day" style="margin-left: 10px;">
                         </i>
-                        07 NOVEMBER 2023
+                        {{ $berita->created_at->format('d-m-Y') }}
                     </div>
                     <p>
-                        Bupati Muda memberikan bantuan kepada 89 rumah ibadah di wilayah Kubu Raya sebagai bagian dari
-                        program sosial pemerintah daerah.
-                    </p>
+                        {!! strlen($item->isi_berita) > 100 ? \Illuminate\Support\Str::limit($item->isi_berita, 100, ' ...') : $item->isi_berita !!}</p>
                 </div>
+                @endforeach
+
             </div>
-            <div class="news-item">
-                <img alt="A group of people standing and holding certificates" height="150"
-                    src="{{ asset('img/news/sideberita2.png') }}" width="150" />
-                <div class="news-item-content">
-                    <h3>
-                        Bupati Muda Serahkan Bantuan untuk 89 Rumah Ibadah
-                    </h3>
-                    <div class="meta">
-                        <i class="fas fa-calendar-alt">
-                        </i>
-                        SELASA
-                        <i class="fas fa-calendar-day" style="margin-left: 10px;">
-                        </i>
-                        07 NOVEMBER 2023
-                    </div>
-                    <p>
-                        Bupati Muda memberikan bantuan kepada 89 rumah ibadah di wilayah Kubu Raya sebagai bagian dari
-                        program sosial pemerintah daerah.
-                    </p>
-                </div>
-            </div>
-            <div class="news-item">
-                <img alt="A group of people standing and holding certificates" height="150"
-                    src="{{ asset('img/news/sideberita1.png') }}" width="150" />
-                <div class="news-item-content">
-                    <h3>
-                        Bupati Muda Serahkan Bantuan untuk 89 Rumah Ibadah
-                    </h3>
-                    <div class="meta">
-                        <i class="fas fa-calendar-alt">
-                        </i>
-                        SELASA
-                        <i class="fas fa-calendar-day" style="margin-left: 10px;">
-                        </i>
-                        07 NOVEMBER 2023
-                    </div>
-                    <p>
-                        Bupati Muda memberikan bantuan kepada 89 rumah ibadah di wilayah Kubu Raya sebagai bagian dari
-                        program sosial pemerintah daerah.
-                    </p>
-                </div>
-            </div>
+
+
+
         </div>
     </div>
 
