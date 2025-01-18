@@ -20,7 +20,7 @@ class TanahPerkebunanResource extends Resource
 {
     protected static ?string $model = TanahPerkebunan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-map';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

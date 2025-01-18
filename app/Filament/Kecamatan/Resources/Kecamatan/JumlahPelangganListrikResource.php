@@ -20,7 +20,7 @@ class JumlahPelangganListrikResource extends Resource
 {
     protected static ?string $model = JumlahPelangganListrik::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bolt';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

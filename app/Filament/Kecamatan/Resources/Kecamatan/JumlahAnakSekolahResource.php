@@ -21,7 +21,7 @@ class JumlahAnakSekolahResource extends Resource
 {
     protected static ?string $model = JumlahAnakSekolah::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

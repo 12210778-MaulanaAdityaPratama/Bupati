@@ -25,7 +25,7 @@ class LaporanCamatResource extends Resource
 {
     protected static ?string $model = LaporanharianCamat::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     public static function getNavigationGroup(): ?string
     {

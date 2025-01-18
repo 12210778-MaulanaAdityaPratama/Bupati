@@ -20,7 +20,7 @@ class PendudukUmurResource extends Resource
 {
     protected static ?string $model = PendudukUmur::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-minus';
 
     protected static ?string $navigationGroup = 'Profile Kecamatan';
 

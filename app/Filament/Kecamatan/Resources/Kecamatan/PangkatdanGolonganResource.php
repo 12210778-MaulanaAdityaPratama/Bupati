@@ -20,7 +20,7 @@ class PangkatdanGolonganResource extends Resource
 {
     protected static ?string $model = PangkatdanGolongan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

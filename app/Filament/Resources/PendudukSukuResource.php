@@ -20,7 +20,7 @@ class PendudukSukuResource extends Resource
 {
     protected static ?string $model = PendudukSuku::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = 'Profile Kecamatan';
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{
     AirBersih,
+    BiodataCamat,
     LaporanHarianCamat,
     AktivitasPerekonomian,
     BatasWilayah,
@@ -69,6 +70,21 @@ class SungaiKakapController extends Controller
 {
     public function index()
     {
+        $bulan = now()->month; // Bulan saat ini
+        $tahun = now()->year;  // Tahun saat ini
+        $kecamatan = 'sungai_kakap'; // Kecamatan spesifik yang ingin ditampilkan
+
+        // Ambil data dari database dengan filter kecamatan
+        $laporan_harian_camat = LaporanHarianCamat::with('penyelenggara')
+            ->where('bulan', $bulan)
+            ->where('tahun', $tahun)
+            ->where('kecamatan', $kecamatan) // Filter berdasarkan kecamatan
+            ->get();
+
+        // Proses data untuk chart
+        $penyelenggaraData = $laporan_harian_camat->pluck('penyelenggara.nama_penyelenggara')->toArray();
+        $jumlahData = $laporan_harian_camat->pluck('jumlah')->toArray();
+        $biodata_camat = BiodataCamat::where('kecamatan', 'sungai_kakap')->get();
         $batas_wilayah = BatasWilayah::where('kecamatan', 'sungai_kakap')->get();
         $luas_wilayah = LuasWilayah::where('kecamatan', 'sungai_kakap')->get();
         $luas_kepadatan = LuasKepadatan::where('kecamatan', 'sungai_kakap')->get();
@@ -156,8 +172,12 @@ class SungaiKakapController extends Controller
         $usaha_tambang_galian = UsahaTambangGalian::where('kecamatan', 'sungai_kakap')->get();
         return view('kecamatan.sungaikakap', compact(
             'airbersih',
+            'biodata_camat',
             'aktivitas_perekonomian',
             'alat_tangkap',
+            'penyelenggaraData',
+            'kecamatan',
+            'jumlahData',
             'ekonomi_angkatan_kerja',
             'foto_judul',
             'hasil_produksi_perkebunan',

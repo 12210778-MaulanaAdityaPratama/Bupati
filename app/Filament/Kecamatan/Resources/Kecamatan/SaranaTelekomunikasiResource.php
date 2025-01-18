@@ -20,7 +20,7 @@ class SaranaTelekomunikasiResource extends Resource
 {
     protected static ?string $model = SaranaTelekomunikasi::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-oval-left-ellipsis';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {
