@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{
     AirBersih,
+    BiodataCamat,
     LaporanHarianCamat,
     AktivitasPerekonomian,
     BatasWilayah,
@@ -69,6 +70,21 @@ class KubuController extends Controller
 {
     public function index()
     {
+        $bulan = now()->month; // Bulan saat ini
+        $tahun = now()->year;  // Tahun saat ini
+        $kecamatan = 'kubu'; // Kecamatan spesifik yang ingin ditampilkan
+
+        // Ambil data dari database dengan filter kecamatan
+        $laporan_harian_camat = LaporanHarianCamat::with('penyelenggara')
+            ->where('bulan', $bulan)
+            ->where('tahun', $tahun)
+            ->where('kecamatan', $kecamatan) // Filter berdasarkan kecamatan
+            ->get();
+
+        // Proses data untuk chart
+        $penyelenggaraData = $laporan_harian_camat->pluck('penyelenggara.nama_penyelenggara')->toArray();
+        $jumlahData = $laporan_harian_camat->pluck('jumlah')->toArray();
+        $biodata_camat = BiodataCamat::where('kecamatan', 'kubu')->get();
         $batas_wilayah = BatasWilayah::where('kecamatan', 'kubu')->get();
         $luas_wilayah = LuasWilayah::where('kecamatan', 'kubu')->get();
         $luas_kepadatan = LuasKepadatan::where('kecamatan', 'kubu')->get();
@@ -155,7 +171,11 @@ class KubuController extends Controller
         $usaha_peternakan = UsahaPeternakan::where('kecamatan', 'kubu')->get();
         $usaha_tambang_galian = UsahaTambangGalian::where('kecamatan', 'kubu')->get();
         return view('kecamatan.kubu', compact(
+            'biodata_camat',
             'airbersih',
+            'penyelenggaraData',
+            'kecamatan',
+            'jumlahData',
             'aktivitas_perekonomian',
             'alat_tangkap',
             'ekonomi_angkatan_kerja',

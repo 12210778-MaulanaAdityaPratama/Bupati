@@ -20,7 +20,7 @@ class JumlahFasilitasPendidikanResource extends Resource
 {
     protected static ?string $model = JumlahFasilitasPendidikan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-swatch';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

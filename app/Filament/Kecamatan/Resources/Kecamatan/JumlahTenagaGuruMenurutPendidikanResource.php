@@ -20,7 +20,7 @@ class JumlahTenagaGuruMenurutPendidikanResource extends Resource
 {
     protected static ?string $model = JumlahTenagaGuruMenurutPendidikan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

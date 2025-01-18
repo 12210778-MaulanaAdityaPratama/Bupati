@@ -20,7 +20,7 @@ class LuasHutanMenurutPenggunaanResource extends Resource
 {
     protected static ?string $model = LuasHutanMenurutPenggunaan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-map-pin';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

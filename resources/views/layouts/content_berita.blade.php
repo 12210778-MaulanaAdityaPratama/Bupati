@@ -9,7 +9,8 @@
                 <div class="news-item">
                     <img src="{{ asset('storage/berita-images/' . $item->gambar) }}" alt="">
                     <h3>{{ $item->nama_berita }}</h3>
-                    <p>{{ \Illuminate\Support\Str::limit($item->isi_berita, 100, '...') }}</p>
+                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi_berita), 100, '...') }}</p>
+
                 </div>
             @endforeach
         </div>

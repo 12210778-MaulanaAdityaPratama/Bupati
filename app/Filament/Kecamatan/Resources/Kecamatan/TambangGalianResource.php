@@ -20,7 +20,7 @@ class TambangGalianResource extends Resource
 {
     protected static ?string $model = TambangGalian::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-down-left';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

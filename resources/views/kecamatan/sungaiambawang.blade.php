@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/kecamatan/kecamatan.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -92,53 +93,38 @@
             <img src="{{ asset('img/kecamatan/sungaiambawang.png') }}" alt="Peta Kecamatan Sungai Raya">
         </div>
 
+
+
         <div class="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quaerat ipsa, non distinctio, fuga
-            aspernatur laborum, at libero facere harum sit consequuntur architecto? Ipsa, voluptates rerum? Molestiae
-            atque nihil dicta, nesciunt sapiente velit iure sit laborum maxime eaque quibusdam optio omnis voluptate
-            minima harum enim, cum tenetur esse? Inventore magnam, ratione vel incidunt maxime ipsum impedit ea eum
-            tenetur, unde delectus explicabo. Deleniti distinctio iste aspernatur ipsa. Cum eum voluptatibus ex eveniet
-            doloremque nostrum iusto magni obcaecati, eos vero quisquam unde quidem ipsum aspernatur itaque aperiam id
-            suscipit. Quod ipsa neque inventore, quisquam repellendus itaque enim? Quisquam perferendis voluptates
-            ducimus!
-        </div>
+            @foreach ($foto_judul as $f )
+                {!! $f->judul !!}
+            @endforeach
+          </div>
 
         <div class="section-title">Profile Kecamatan Sungai Ambawang</div>
 
         <div class="profile">
             <div class="biodata">
-                <img src="{{ asset('img/kecamatan/camatsungairaya.png') }}" alt="Foto Camat">
+                @foreach ($biodata_camat as $bc )
+
+
+                <img src="{{ asset('storage/' . $bc->foto) }}" alt="Foto Camat">
                 <h3>Biodata Camat</h3>
-                <p>Nama: Drs. M. Ikhsan Sukendra, M.Si</p>
-                <p>Alamat: -</p>
-                <p>Tempat, Tanggal Lahir: -</p>
-                <p>Pendidikan Terakhir: -</p>
+                <p>Nama: {{$bc->nama}}</p>
+                <p>Alamat: {{$bc->alamat}}</p>
+                <p>Tempat, Tanggal Lahir: {{$bc->tempat}}, {{ date('d-m-Y', strtotime($bc->tanggal_lahir)) }}</p>
+
+                <p>Pendidikan Terakhir: {{$bc->pendidikan}}</p>
+                @endforeach
             </div>
 
             <div class="report">
                 <h3>Laporan Bulanan</h3>
-                <div class="dropdown">
-                    <select id="monthSelector" onchange="updateChart()">
-                        <option value="1">Januari</option>
-                        <option value="2">Februari</option>
-                        <option value="3">Maret</option>
-                        <option value="4">April</option>
-                        <option value="5">Mei</option>
-                        <option value="6">Juni</option>
-                        <option value="7">Juli</option>
-                        <option value="8">Agustus</option>
-                        <option value="9">September</option>
-                        <option value="10">Oktober</option>
-                        <option value="11">November</option>
-                        <option value="12">Desember</option>
-                    </select>
-                </div>
-                <div class="chart-container">
-                    <canvas id="monthlyReportChart"></canvas>
-                </div>
-                <div class="pdf-box">
-                    <button onclick="openPDF()">Lihat Laporan PDF</button>
-                </div>
+                <canvas id="myPieChart" style="width:250px; height:125px; margin: 0 auto; display: block;"></canvas>
+
+
+
+
             </div>
         </div>
     </div>
@@ -243,7 +229,50 @@
     </div>
     <!-- Tambahkan Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+
+
+    {{-- <script>
+        // Inisialisasi peta Kecamatan Sungai Ambawang
+        var map = L.map('map').setView([-0.05726, 109.63465], 12); // Koordinat pusat Sungai Ambawang
+
+        // Tambahkan layer peta dari OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Lokasi beberapa desa di Kecamatan Sungai Ambawang
+        var desaLocations = [
+    { name: "Desa Ampera Raya", lat: -0.04029, lng: 109.38297 },
+    { name: "Desa Bengkarek", lat: -0.13327, lng: 109.54016 },
+    { name: "Desa Durian", lat: -0.06089, lng: 109.43634 },
+    { name: "Desa Jawa Tengah", lat: -0.04040, lng: 109.47015 },
+    { name: "Desa Korek", lat: -0.03148, lng: 109.55018 },
+    { name: "Desa Lingga", lat: -0.03211, lng: 109.60268 },
+    { name: "Desa Mega Timur", lat: -0.01768, lng: 109.38466 },
+    { name: "Desa Pancaroba", lat: -0.03127, lng: 109.60758 },
+    { name: "Desa Pasak", lat: -0.11362, lng: 109.55161 },
+    { name: "Desa Pasak Piang", lat: -0.20896, lng: 109.54560 },
+    { name: "Desa Puguk", lat: -0.09779, lng: 109.50959 },
+    { name: "Desa Simpang Kanan", lat: -0.07382, lng: 109.50389 },
+    { name: "Desa Simpang Raya", lat: -0.07132, lng: 109.50746 },
+    { name: "Desa Sungai Ambawang Kuala", lat: -0.03849, lng: 109.41059 }, // Lokasi spesifik
+    { name: "Desa Sungai Malaya", lat: -0.02616, lng: 109.39302 }, // Lokasi spesifik
+    { name: "Desa Teluk Bakung", lat: 3.91700, lng: 98.42000 } // Lokasi spesifik
+];
+
+
+
+
+
+
+        // Tambahkan marker ke peta untuk setiap desa
+        desaLocations.forEach(function(desa) {
+          L.marker([desa.lat, desa.lng]).addTo(map)
+            .bindPopup(`<b>${desa.name}</b>`); // Menampilkan nama desa saat marker diklik
+        });
+      </script> --}}
 
     <!-- data untuk modal -->
     <script>
@@ -269,50 +298,43 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-        // Data asli
-        const chartData = {
-            1: [74.77, 25.23], // Data bulan Januari
-            2: [65.34, 34.66], // Data bulan Februari
-            3: [70.21, 29.79], // Data bulan Maret
-            4: [67.89, 32.11], // Data bulan April
-            5: [60.12, 39.88], // Data bulan Mei
-            6: [64.67, 35.33], // Data bulan Juni
-            7: [68.95, 31.05], // Data bulan Juli
-            8: [72.41, 27.59], // Data bulan Agustus
-            9: [75.19, 24.81], // Data bulan September
-            10: [70.55, 29.45], // Data bulan Oktober
-            11: [66.78, 33.22], // Data bulan November
-            12: [71.23, 28.77] // Data bulan Desember
-        };
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Data dari controller (dikirim melalui Blade)
+        const penyelenggaraData = @json($penyelenggaraData);
+        const jumlahData = @json($jumlahData);
 
-        // Fungsi untuk mengonversi data ke dalam persentase
-        const convertToPercentage = (data) => {
-            const result = {};
-            Object.entries(data).forEach(([month, values]) => {
-                const total = values.reduce((sum, value) => sum + value, 0);
-                result[month] = values.map(value => ((value / total) * 100).toFixed(2));
-            });
-            return result;
-        };
+        // Hitung total data untuk persentase
+        const totalJumlah = jumlahData.reduce((sum, value) => sum + value, 0);
 
-        // Data dalam bentuk persentase
-        const percentageData = convertToPercentage(chartData);
-
-        // Konfigurasi Chart.js
-        const ctx = document.getElementById('monthlyReportChart').getContext('2d');
-        const monthlyReportChart = new Chart(ctx, {
-            type: 'doughnut',
+        // Buat chart
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
             data: {
-                labels: [
-                    'Penyelenggaraan Pemerintahan Kecamatan Umum',
-                    'Penyelenggaraan Penyusunan Perencanaan Pembangunan'
-                ],
+                labels: penyelenggaraData, // Nama penyelenggara
                 datasets: [{
-                    label: 'Laporan Bulanan',
-                    data: percentageData[1], // Default bulan Januari
-                    backgroundColor: ['#4caf50', '#ff9800']
+                    label: 'Jumlah Data',
+                    data: jumlahData, // Jumlah data
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
                 }]
             },
             options: {
@@ -321,32 +343,24 @@
                     legend: {
                         position: 'bottom'
                     },
+                    title: {
+                        display: true,
+                        text: 'Laporan Harian Camat Kecamatan {{ $kecamatan }} Bulan {{ now()->format("F Y") }}'
+                    },
                     tooltip: {
                         callbacks: {
-                            label: function(tooltipItem) {
-                                const label = tooltipItem.label || '';
-                                const value = tooltipItem.raw; // Data mentah persentase
-                                return `${label} ${value}%`; // Menampilkan label dengan persentase
+                            label: function (context) {
+                                let percentage = Math.round((context.raw / totalJumlah) * 100); // Hitung dan bulatkan persentase
+                                return `${context.label}: ${percentage}%`; // Tampilkan persentase
                             }
                         }
                     }
                 }
             }
         });
+    });
+</script>
 
-        // Fungsi untuk memperbarui data chart berdasarkan bulan yang dipilih
-        const updateChart = () => {
-            const selectedMonth = document.getElementById('monthSelector').value;
-            monthlyReportChart.data.datasets[0].data = percentageData[selectedMonth];
-            monthlyReportChart.update();
-        };
-
-        // Fungsi untuk membuka PDF laporan bulanan
-        const openPDF = () => {
-            const selectedMonth = document.getElementById('monthSelector').value;
-            window.open(`laporan-bulanan-${selectedMonth}.pdf`, '_blank'); // Ganti nama file sesuai pola
-        };
-    </script>
 
 
 </body>

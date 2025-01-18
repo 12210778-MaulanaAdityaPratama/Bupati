@@ -20,7 +20,7 @@ class EkonomiAngkatanKerjaResource extends Resource
 {
     protected static ?string $model = EkonomiAngkatanKerja::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-down-right';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

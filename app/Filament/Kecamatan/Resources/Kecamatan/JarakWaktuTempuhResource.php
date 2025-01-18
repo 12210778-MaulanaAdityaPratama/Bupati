@@ -20,7 +20,7 @@ class JarakWaktuTempuhResource extends Resource
 {
     protected static ?string $model = JarakWaktuTempuh::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clock';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

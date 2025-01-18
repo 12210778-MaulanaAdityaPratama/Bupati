@@ -20,7 +20,7 @@ class JumlahSanggarBudayaResource extends Resource
 {
     protected static ?string $model = JumlahSanggarBudaya::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

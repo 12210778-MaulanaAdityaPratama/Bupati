@@ -20,7 +20,7 @@ class LuasKepadatanResource extends Resource
 {
     protected static ?string $model = LuasKepadatan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-table-cells';
 
     protected static ?string $navigationGroup = 'Profile Kecamatan';
 

@@ -17,6 +17,7 @@ class BeritaController extends Controller
             return $query->where('nama_berita', 'like', '%' . $search . '%')
                 ->orWhere('isi_berita', 'like', '%' . $search . '%');
         })
+            ->orderBy('created_at', 'desc') // Urutkan berdasarkan tanggal terbaru
             ->paginate(5); // Pagination dengan 5 item per halaman
 
         // Kirim data ke tampilan

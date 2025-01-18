@@ -20,7 +20,7 @@ class PendudukAgamaResource extends Resource
 {
     protected static ?string $model = PendudukAgama::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     protected static ?string $navigationGroup = 'Profile Kecamatan';
 

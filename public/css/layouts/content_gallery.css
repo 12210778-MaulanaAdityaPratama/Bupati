@@ -1,7 +1,7 @@
 .container-slide {
     display: flex;
     width: 97%;
-    max-width: 1890px;
+    max-width: none;
     padding: 10px;
     position: relative;
     background-color: white;

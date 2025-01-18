@@ -20,7 +20,7 @@ class JumlahPendudukMiskinResource extends Resource
 {
     protected static ?string $model = JumlahPendudukMiskin::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

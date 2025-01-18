@@ -20,7 +20,7 @@ class HasilProduksiPerkebunanResource extends Resource
 {
     protected static ?string $model = HasilProduksiPerkebunan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-beaker';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

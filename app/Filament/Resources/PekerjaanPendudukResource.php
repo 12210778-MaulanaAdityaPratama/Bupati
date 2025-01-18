@@ -20,7 +20,7 @@ class PekerjaanPendudukResource extends Resource
 {
     protected static ?string $model = PekerjaanPenduduk::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
     protected static ?string $navigationGroup = 'Profile Kecamatan';
 

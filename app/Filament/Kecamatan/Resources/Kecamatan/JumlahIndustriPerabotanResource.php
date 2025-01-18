@@ -20,7 +20,7 @@ class JumlahIndustriPerabotanResource extends Resource
 {
     protected static ?string $model = JumlahIndurstriPerabotan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-window';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

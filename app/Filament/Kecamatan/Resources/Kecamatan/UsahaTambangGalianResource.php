@@ -20,7 +20,7 @@ class UsahaTambangGalianResource extends Resource
 {
     protected static ?string $model = UsahaTambangGalian::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrows-up-down';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
     public static function getEloquentQuery(): Builder
     {

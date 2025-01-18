@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{
     AirBersih,
+    BiodataCamat,
     LaporanHarianCamat,
     AktivitasPerekonomian,
     BatasWilayah,
@@ -69,6 +70,21 @@ class RasauJayaController extends Controller
 {
     public function index()
     {
+        $bulan = now()->month; // Bulan saat ini
+        $tahun = now()->year;  // Tahun saat ini
+        $kecamatan = 'rasau_jaya'; // Kecamatan spesifik yang ingin ditampilkan
+
+        // Ambil data dari database dengan filter kecamatan
+        $laporan_harian_camat = LaporanHarianCamat::with('penyelenggara')
+            ->where('bulan', $bulan)
+            ->where('tahun', $tahun)
+            ->where('kecamatan', $kecamatan) // Filter berdasarkan kecamatan
+            ->get();
+
+        // Proses data untuk chart
+        $penyelenggaraData = $laporan_harian_camat->pluck('penyelenggara.nama_penyelenggara')->toArray();
+        $jumlahData = $laporan_harian_camat->pluck('jumlah')->toArray();
+        $biodata_camat = BiodataCamat::where('kecamatan', 'rasau_jaya')->get();
         $batas_wilayah = BatasWilayah::where('kecamatan', 'rasau_jaya')->get();
         $luas_wilayah = LuasWilayah::where('kecamatan', 'rasau_jaya')->get();
         $luas_kepadatan = LuasKepadatan::where('kecamatan', 'rasau_jaya')->get();
@@ -156,7 +172,11 @@ class RasauJayaController extends Controller
         $usaha_tambang_galian = UsahaTambangGalian::where('kecamatan', 'rasau_jaya')->get();
         return view('kecamatan.rasaujaya', compact(
             'airbersih',
+            'biodata_camat',
             'aktivitas_perekonomian',
+            'penyelenggaraData',
+            'kecamatan',
+            'jumlahData',
             'alat_tangkap',
             'ekonomi_angkatan_kerja',
             'foto_judul',

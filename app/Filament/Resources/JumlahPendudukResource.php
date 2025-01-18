@@ -20,7 +20,7 @@ class JumlahPendudukResource extends Resource
 {
     protected static ?string $model = JumlahPenduduk::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-plus';
     protected static ?string $navigationGroup = 'Profile Kecamatan';
 
     public static function form(Form $form): Form
