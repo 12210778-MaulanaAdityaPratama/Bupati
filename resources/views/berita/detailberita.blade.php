@@ -9,6 +9,7 @@
     </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{ asset('css/berita/detailberita.css') }}">
 </head>
 
@@ -83,8 +84,19 @@
 
     <div class="container">
         <div class="main-content">
-            <img alt="A group of people standing in a field with trees in the background" height="400"
-                src="{{ asset('storage/berita-images/' . $berita->gambar) }}" width="800" />
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach ($berita->gambarBerita as $gambar)
+                    <div class="swiper-slide">
+                        <div class="swiper-slide" style="background-image: url('{{ asset('storage/' . $gambar->gambar) }}');"></div>
+                    </div>
+                @endforeach
+                </div>
+                <!-- Navigasi -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
             <h1>
                 {{$berita->nama_berita}}
             </h1>
@@ -109,28 +121,33 @@
         <div class="sidebar">
 
             <div class="news-item">
-                @foreach($beritaLainnya as $item)
-
-                <img alt="A group of people standing and holding certificates" height="150"
-                    src="{{ asset('storage/berita-images/' . $item->gambar) }}" width="150" />
-                <div class="news-item-content">
-                    <h3>
-                        <a href="{{ route('detailberita', $item->id) }}">
-                        {{ $item->nama_berita }}
-                        </a>
-                    </h3>
-                    <div class="meta">
-                        <i class="fas fa-calendar-alt">
-                        </i>
-                        {{ $berita->created_at->translatedFormat('l') }}
-                        <i class="fas fa-calendar-day" style="margin-left: 10px;">
-                        </i>
-                        {{ $berita->created_at->format('d-m-Y') }}
+                @foreach($beritaLainnya as $beritaItem)
+                @php
+                    // Ambil gambar pertama yang terkait dengan berita ini
+                    $firstImage = $beritaItem->gambarBerita->first();
+                @endphp
+                @if ($firstImage)
+                    <img alt="A group of people standing and holding certificates" height="150"
+                        src="{{ asset('storage/' . $firstImage->gambar) }}" width="150" />
+                    <div class="news-item-content">
+                        <h3>
+                            <a href="{{ route('detailberita', $beritaItem->id) }}">
+                                {{ $beritaItem->nama_berita }}
+                            </a>
+                        </h3>
+                        <div class="meta">
+                            <i class="fas fa-calendar-alt"></i>
+                            {{ $beritaItem->created_at->translatedFormat('l') }}
+                            <i class="fas fa-calendar-day" style="margin-left: 10px;"></i>
+                            {{ $beritaItem->created_at->format('d-m-Y') }}
+                        </div>
+                        <p>
+                            {!! strlen($beritaItem->isi_berita) > 100 ? \Illuminate\Support\Str::limit($beritaItem->isi_berita, 100, ' ...') : $beritaItem->isi_berita !!}
+                        </p>
                     </div>
-                    <p>
-                        {!! strlen($item->isi_berita) > 100 ? \Illuminate\Support\Str::limit($item->isi_berita, 100, ' ...') : $item->isi_berita !!}</p>
-                </div>
-                @endforeach
+                @endif
+            @endforeach
+
 
             </div>
 
@@ -176,6 +193,16 @@
             </div>
         </div>
     </div>
-</body>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".swiper-container", {
 
+    loop: true, // Menyebabkan transisi lebih halus
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+        });
+    </script>
+</body>
 </html>

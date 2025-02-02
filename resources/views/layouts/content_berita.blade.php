@@ -6,12 +6,17 @@
         </div>
         <div class="news-grid">
             @foreach($berita as $item)
+            @php
+            $firstImage = $item->gambarBerita->first();
+        @endphp
                 <div class="news-item">
-                    <img src="{{ asset('storage/berita-images/' . $item->gambar) }}" alt="">
+                    @if ($firstImage)
+                    <img src="{{ asset('storage/' . $firstImage->gambar) }}" alt="">
                     <h3>{{ $item->nama_berita }}</h3>
                     <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->isi_berita), 100, '...') }}</p>
 
                 </div>
+                @endif
             @endforeach
         </div>
         <button class="more-news-btn">Berita Lainnya</button>

@@ -58,6 +58,6 @@ class LaporanCamatController extends Controller
             abort(404, "Data untuk kecamatan {$kecamatan}, bulan {$bulan}, dan tahun {$tahun} tidak ditemukan.");
         }
         // Tampilkan data ke view
-        return view('pdf.laporan-camat', compact('data', 'kecamatan', 'bulan', 'tahun'));
+        return view('pdf.download', compact('data', 'kecamatan', 'bulan', 'tahun'));
     }
 }

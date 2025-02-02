@@ -135,7 +135,7 @@
     <div>
         <h2>Provinsi: Kalimantan Barat</h2>
         <h2>Kabupaten: Kubu Raya</h2>
-        <h2>Kecamatan: {{ $kecamatan }}</h2>
+        <h2>Kecamatan: {{ ucwords(str_replace('_', ' ', $kecamatan)) }}</h2>
         <h2>Bulan: {{ $bulanName }} {{ $tahun }}</h2>
     </div>
 
@@ -188,8 +188,13 @@
                 <td>{{ number_format($laporans->sum('jumlah'), 2) }}</td>
             </tr>
             <tr>
-                <td colspan="5" class="total">NILAI RATA-RATA {{$penyelenggara}} x 25%</td>
-                <td>{{ number_format($laporans->sum('jumlah') * 0.25, 2) }}</td>
+                @php
+    $jumlahPenyelenggara = count($data); // Hitung jumlah penyelenggara unik
+    $persentase = $jumlahPenyelenggara > 0 ? 100 / $jumlahPenyelenggara : 0; // Hitung persentase
+@endphp
+
+<td colspan="5" class="total">NILAI RATA-RATA {{$penyelenggara}} x {{ number_format($persentase, 1) }}%</td>
+<td>{{ number_format($laporans->sum('jumlah') * ($persentase / 100), 2) }}</td>
             </tr>
         </tbody>
     </table>
@@ -197,11 +202,16 @@
     <table>
         <tr>
             <td colspan="5" class="total">Nilai Rerata Keseluruhan</td>
-            <td>{{ number_format($data->flatten()->sum('jumlah') * 0.25, 2) }}</td>
+            <td>{{ number_format(collect($data)->map(fn($laporans) => $laporans->sum('jumlah') * ($persentase / 100))->sum(), 1) }}</td>
+
         </tr>
         <tr>
-            <td colspan="5" class="total">Nilai Rata-Rata Keseluruhan x 75%</td>
-            <td>{{ number_format($data->flatten()->sum('jumlah') * 0.75, 2) }}</td>
+            @php
+            $rerataKeseluruhan = collect($data)->map(fn($laporans) => $laporans->sum('jumlah') * ($persentase / 100))->sum();
+            @endphp
+
+            <td colspan="5" class="total">Nilai Rata-Rata Keseluruhan {{$jumlahPenyelenggara}} x 100%</td>
+            <td>{{ number_format(collect($data)->map(fn($laporans) => $laporans->sum('jumlah') * ($persentase / 100) * ($jumlahPenyelenggara) )->sum(), 1) }}</td>
         </tr>
     </table>
 
@@ -245,7 +255,7 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Laporan Hairan Camat {{$kecamatan}} Bulan {{$bulanName}} {{$tahun}}',
+                        text: 'Laporan Harian Camat {{ ucwords(str_replace("_", " ", $kecamatan)) }} Bulan {{ $bulanName }} {{ $tahun }}',
                     },
                     legend: {
                         position: 'bottom',
