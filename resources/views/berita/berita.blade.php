@@ -108,10 +108,16 @@
 
         <!-- First News Item -->
         @foreach($berita as $item)
+        @php
+            $firstImage = $item->gambarBerita->first();
+        @endphp
 
 
             <article class="browser">
-                <img src="{{ asset('storage/berita-images/' . $item->gambar) }}" alt="">
+                @if ($firstImage)
+
+
+                <img src="{{ asset('storage/' . $firstImage->gambar) }}" alt="">
                 <div>
                     <a href="{{ route('detailberita', $item->id) }}">
                     <h2>{{ $item->nama_berita }}</h2>
@@ -129,6 +135,7 @@
                 </div>
             </article>
         </a>
+        @endif
         @endforeach
 
 

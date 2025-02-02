@@ -8,21 +8,39 @@ use Carbon\Carbon;
 
 class AdminChart extends ChartWidget
 {
-    protected static ?string $heading = 'Laporan Harian Camat Terbaru';
+    protected static ?string $heading = 'Laporan Harian Camat Sekarang';
 
     protected function getData(): array
     {
-        // Tentukan bulan dan tahun saat ini
+        // Mulai dengan bulan dan tahun sekarang
         $bulan = Carbon::now()->month;
         $tahun = Carbon::now()->year;
 
-        // Ambil semua laporan yang memiliki kecamatan yang sama dan bulan serta tahun yang sama
-        $laporan = LaporanHarianCamat::with('penyelenggara')
-            ->where('bulan', $bulan) // Filter berdasarkan bulan
-            ->where('tahun', $tahun) // Filter berdasarkan tahun
-            ->get();
+        // Cek data dan mundur jika kosong
+        $laporan = null;
+        $maxCekBulan = 12; // Maksimum mundur 12 bulan
+        $count = 0;
 
-        // Cek jika data kosong
+        // Cek data bulan dan tahun sekarang, jika kosong, mundur
+        while ($laporan === null || $laporan->isEmpty()) {
+            // Ambil data laporan untuk bulan dan tahun yang saat ini
+            $laporan = LaporanHarianCamat::with('penyelenggara')
+                ->where('bulan', $bulan)
+                ->where('tahun', $tahun)
+                ->get();
+
+            // Jika sudah mencoba 12 bulan dan tetap kosong, keluar dari loop
+            if ($count >= $maxCekBulan) {
+                break;
+            }
+
+            // Mundur satu bulan
+            $bulan = Carbon::createFromDate($tahun, $bulan, 1)->subMonth()->month;
+            $tahun = Carbon::createFromDate($tahun, $bulan, 1)->year;
+            $count++;
+        }
+
+        // Jika data masih kosong setelah 12 bulan mundur
         if ($laporan->isEmpty()) {
             return [
                 'datasets' => [
@@ -45,7 +63,8 @@ class AdminChart extends ChartWidget
         // Kelompokkan data berdasarkan kecamatan dan penyelenggara
         foreach ($laporan as $item) {
             // Membuat label dengan format 'Kecamatan - Nama Penyelenggara'
-            $labels[] = $item->kecamatan . ' - ' . ($item->penyelenggara->nama_penyelenggara ?? 'Tidak Diketahui');
+            $labels[] = ucwords(str_replace("_", " ", $item->kecamatan)) . ' - ' . ($item->penyelenggara->nama_penyelenggara ?? 'Tidak Diketahui');
+
             $values[] = $item->jumlah;
         }
 

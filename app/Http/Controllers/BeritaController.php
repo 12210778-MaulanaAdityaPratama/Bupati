@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Berita;
+use App\Models\BeritaImage;
 
 class BeritaController extends Controller
 {

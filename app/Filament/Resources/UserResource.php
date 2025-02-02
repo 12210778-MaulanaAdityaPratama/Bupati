@@ -32,8 +32,7 @@ class UserResource extends Resource
                     ->label('Name')
                     ->required(),
                 TextInput::make('kecamatan')
-                    ->label('Nama Kecamatan')
-                    ->required(),
+                    ->label('Nama Kecamatan'),
                 TextInput::make('email')
                     ->label('Email')
                     ->email()
@@ -51,8 +50,7 @@ class UserResource extends Resource
                     ->required(),
                 Select::make('kecamatan_id')
                     ->relationship('kecamatan', 'kecamatan')
-                    ->label('Kecamatan')
-                    ->required(),
+                    ->label('Kecamatan'),
 
             ]);
     }
