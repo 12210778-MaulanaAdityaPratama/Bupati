@@ -1,66 +1,167 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <img src="https://ui-avatars.com/api/?name=Bupati&background=0D8ABC&color=fff&size=150&rounded=true" alt="Bupati Project Logo" width="150" height="150">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🏛️ Bupati Project
 
-## About Laravel
+**A modern and elegant web application built with the TALL stack (Tailwind, Alpine, Laravel, Livewire/Filament).**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20.svg?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2-777BB4.svg?style=for-the-badge&logo=php)](https://php.net)
+[![Filament](https://img.shields.io/badge/Filament-3.x-FBBF24.svg?style=for-the-badge&logo=laravel)](https://filamentphp.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC.svg?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+</div>
 
-## Learning Laravel
+## 📖 About The Project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Bupati** is a comprehensive information system and management dashboard designed to streamline administrative workflows. Powered by the robust **Laravel 11** framework and the elegant **Filament** administration panel, this application offers a seamless user experience, responsive design, and high performance.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### ✨ Key Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Intuitive Dashboard:** A sleek, user-friendly administrative interface powered by Filament.
+- **Secure Architecture:** Built on Laravel's battle-tested security paradigms.
+- **Modern UI/UX:** Styled completely with Tailwind CSS for a responsive, mobile-first design.
+- **High Performance:** Assets compiled lightning-fast using Vite.
+- **Media & Document Handling:** Integrated with Puppeteer, Spatie Browsershot, and Intervention Image for advanced media manipulation and reporting.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📸 Screenshots
 
-### Premium Partners
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <a href="#">
+          <img src="public/img/ss/home.png" alt="Landing Page">
+        </a>
+        <br>
+        <em>Landing Page</em>
+      </td>
+      <td align="center">
+        <a href="#">
+          <img src="public/img/ss/home2.png" alt="landing page">
+        </a>
+        <br>
+        <em>Landing Page</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <a href="#">
+          <img src="public/img/ss/home3.png" alt="landing page">
+        </a>
+        <br>
+        <em>Landing Page</em>
+      </td>
+      <td align="center">
+        <a href="#">
+          <img src="public/img/ss/home4.png" alt="Landing page">
+        </a>
+        <br>
+        <em>Landing page</em>
+      </td>
+    </tr>
+     <tr>
+      <td align="center">
+        <a href="#">
+          <img src="public/img/ss/login.png" alt="login page">
+        </a>
+        <br>
+        <em>Login Page</em>
+      </td>
+      <td align="center">
+        <a href="#">
+          <img src="public/img/ss/admin.png" alt="admin page">
+        </a>
+        <br>
+        <em>Admin page</em>
+      </td>
+    </tr>
+  </table>
+</div>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## 🛠️ Built With (Technologies Used)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+This project leverages cutting-edge open-source tools and libraries:
 
-## Code of Conduct
+### Backend & Core Framework
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white) **[Laravel 11](https://laravel.com)** - The core PHP framework.
+- ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) **[PHP 8.2](https://php.net)** - Server-side programming language.
+- ![Filament](https://img.shields.io/badge/Filament-FBBF24?style=flat-square&logo=laravel&logoColor=white) **[Filament v3](https://filamentphp.com)** - A collection of tools for rapidly building beautiful TALL stack interfaces.
 
-## Security Vulnerabilities
+### Frontend & Styling
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS framework for rapid UI development.
+- ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat-square&logo=vite&logoColor=FFD62E) **[Vite 6](https://vitejs.dev)** - Next Generation Frontend Tooling for asset bundling.
+- ![AlpineJS](https://img.shields.io/badge/Alpine.js-2D3441?style=flat-square&logo=alpine.js&logoColor=white) **[Alpine.js](https://alpinejs.dev/)** - A rugged, minimal framework for composing JavaScript behavior.
 
-## License
+### Utilities & Packages
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **[Puppeteer](https://pptr.dev/) & Spatie Browsershot:** For capturing web pages and generating PDFs/Images.
+- **[Intervention Image v3](https://image.intervention.io/):** For image handling and manipulation.
+- **[Barryvdh DOMPDF](https://github.com/barryvdh/laravel-dompdf):** HTML to PDF converter for Laravel.
+
+---
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- MySQL / PostgreSQL
+
+### Installation
+
+1. **Clone the repository**
+
+    ```bash
+    git clone https://github.com/your_username/bupati.git
+    ```
+
+2. **Install PHP Dependencies**
+
+    ```bash
+    composer install
+    ```
+
+3. **Install NPM Packages**
+
+    ```bash
+    npm install
+    ```
+
+4. **Environment Setup**
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+5. **Configure Database**
+   Update your `.env` file with your database credentials, then run:
+
+    ```bash
+    php artisan migrate
+    ```
+
+6. **Build Assets & Run Server**
+    ```bash
+    npm run dev
+    php artisan serve
+    ```
+
+---
+
+<div align="center">
+  <p>Made with ❤️ for the Bupati Project.</p>
+</div>
